@@ -1,0 +1,54 @@
+> <!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+  <img src="https://user-images.githubusercontent.com/110621233/230261715-4876e348-67d2-4068-983e-580238afdc63.png" alt="JOIN">
+  <h3>JOIN이란?</h3>
+    <ul>
+        <li>두 개 이상의 테이블을 서로 연결하여 데이터를 검색할 때 사용하는 방법.</li>
+        <li>두 개의 테이블을 마치 하나의 테이블인 것처럼 보여준다.</li>
+    </ul>
+  <h3>INNER JOIN(내부 조인)</h3>
+  <ul>
+  <li>두 테이블을 연결할 때 가장 많이 사용하는 조인이며, 그냥 조인이라고 부르면 내부 조인을 의미한다.</li>
+  <hr>
+  <p>
+    SELECT 조회할 컬럼명 <br>
+    FROM 테이블1, 테이블2 <br>
+    [WHERE 조건] (<= 선택 )
+  </p>
+  <hr>
+  <p>
+    SELECT 조회할 컬럼명 <br>
+    FROM 테이블1 <br>
+    (INNER) JOIN 테이블2 <br>
+    ON 테이블1.컬럼 = 테이블2.컬럼 <br>
+    [WHERE 추가조건] (<= 선택 ) <br>
+  </p>
+  <img style='width:500px 'src="https://user-images.githubusercontent.com/110621233/230261361-a19195dc-48a1-4807-aca3-607d0322a9c7.png" alt="INNER">
+  <hr>
+  </ul>
+  <h3>OUTER JOIN</h3>
+  <ul>
+    <li>내부 조인은 두 테이블에 모두 데이터가 있어야만 결과가 나오지만, <br> 외부 조인은 한쪽에만 데이터가 있어도 결과가 나온다.</li>
+    <hr>    
+    <h4><p>LEFT JOIN : 좌측 테이블 데이터에 추가로 우측 테이블 데이터를 조인하는 문법<br>
+      users의 id와 photos의 user_id가 같은 photos filename과 users nickname을 출력하라 </h4>
+      <h4>SELECT photos.filename, users.nickname <br>
+      FROM photos LEFT JOIN users ON users.id = photos.user_id <br></h4>
+      <img style='width:500px' src="https://user-images.githubusercontent.com/110621233/230260629-fcf0c1dc-1f57-441f-b49b-6dccf83884c0.png" alt="LEFT JOIN">
+    </p>
+    <hr>    
+    <h4><p>RIGHT JOIN : LEFT JOIN의 반대이며, 우측 테이블 데이터 모두와 좌측 테이블 데이터를 합치는데 조건을 만족하는 데이터만 합치는 것이다.</p></h4>
+    <img style='width:500px' src="https://user-images.githubusercontent.com/110621233/230260632-9a3a077b-91ae-4719-add4-f250763be2dc.png" alt="RIGHT JOIN">
+    <hr>
+    <h4><p>FULL JOIN : 좌측, 우측 테이블 상관없이 모든 데이터를 가져오는데 데이터가 빈 값이라면 NULL로 처리해서 가져온다.</p></h4>
+    <img style='width:500px; height:300px' src="https://user-images.githubusercontent.com/110621233/230260634-3b1651d4-c806-41e0-a1d3-bd97030163b4.png" alt="FULL JOIN1">
+    <img style='width:500px ; height:300px' src="https://user-images.githubusercontent.com/110621233/230260636-51d81035-cbf3-4f49-a51e-13733e8b836e.png" alt="FULL JOIN2">
+    <hr>
+
+  <h3>참고</h3>
+  <a href="https://velog.io/@wijoonwu/JOIN">wijoonwu</a>
+</body>
+</html>
