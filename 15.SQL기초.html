@@ -1,11 +1,9 @@
-<!DOCTYPE html>
+> <!DOCTYPE html>
 <html lang="en">
 <head>
 </head>
 <body>
-
   <h3>SQL Syntax</h3>
-
     <ul>
         <li>모든 SQL 문(statement)은 SELECT, INSERT와 같은 키워드로 시작하고,<br> 하나의 문(statement)은 세미콜론 ; 으로 끝난다.</li>
         <li>SQL 키워드는 대소문자를 구분하지 않는다. 하지만 대문자 권장</li>
@@ -28,7 +26,6 @@
             </ul>
         </li>
     </ul>
-  
     <h3>SQL</h3>
     <p>데이터베이스 시스템에서 자료를 처리하는 용도로 사용되는 구조적 데이터 질의 언어</p>
     <ul>
@@ -46,7 +43,7 @@
         </li>
     </ul>
 
-  <h3>DDL</h3>
+>  <h3>DDL</h3>
     <ol><h4>CREAT TABLE</h4>
         <li>contacts 테이블 생성</li>
         <img src="https://user-images.githubusercontent.com/110621233/229967842-9d2279c3-d616-4181-bda1-9a4d24c54d68.png" alt="">
@@ -91,8 +88,7 @@
         </li>
     </ul>
 
-  <h3>DML</h3>
-
+>  <h3>DML</h3>
     <ul>
         <ol><h4>DB파일 열기</h4>
             <li>db파일에 테이블 생성하기</li>
@@ -100,18 +96,18 @@
             <li>sqlite3 db이름.sqlite3</li>
             <li>모드를 csv로 설정 => .mode csv</li>
             <li>.import 명령어로 csv데이터 불러오기 => .import csv이름.csv 테이블명</li>
-        </ol>
+        </ol><br>
+        
+        <h4><li>SELECT 절 : 컬럼을 지정해 조회 할 때 사용</h4>
+        <p>
+            SELECT 조회 할 컬럼명<br>
+            FROM 테이블명
+            <br><br>
+            모든 컬럼을 조회하려면 *사용
+        </p>
+        </li>
 
-        <ol><h4>SELECT 절 : 컬럼을 지정해 조회 할 때 사용</h4>
-            <p>
-                SELECT 조회 할 컬럼명<br>
-                FROM 테이블명
-                <br><br>
-                모든 컬럼을 조회하려면 *사용
-            </p>
-        </ol>
-
-        <ol><h4>ORDER BY절 : 조회한 데이터를 정렬 할 때 사용</h4>
+        <h4><li>ORDER BY절 : 조회한 데이터를 정렬 할 때 사용</h4>
             <p>
                 SELECT 컬럼명 <br>
                 FROM 테이블명 <br>
@@ -121,97 +117,133 @@
                 여러가지 순으로 정렬하고 싶으면 ORDER BY 뒤에 순서대로 컬럼명을 적어준다. <br>
                 NULL은 다른 값보다 작은것으로 보고 정렬한다.
             </p>
-        </ol>
+        
+        <h3>Filtering data</h3>
 
-        <ol><h4>Filtering data</h4>
+        <h4><li><p>DISTINCT <br></h4>
+            SELECT DISTINCT 컬럼명 <br>
+            FROM 테이블명 <br><br>
+            조회 결과에서 중복된 행을 제거해준다. <br>
+        </p>
 
-            <h4><li><p>DISTINCT <br></h4>
-                SELECT DISTINCT 컬럼명 <br>
-                FROM 테이블명 <br><br>
-                조회 결과에서 중복된 행을 제거해준다. <br>
-            </p>
-            </li>
+        </li>
+        <h4><li><p>WHERE <br></h4>
+            SELECT 컬럼명 <br>
+            FROM 테이블명 <br>
+            WHERE age = 20; (특정 조건) <br><br>
+            조회 시 특정 검색 조건을 지정해준다.<br>
+            여러 조건을 주고 싶을 경우 AND 나 OR을 추가해준다. <br>
+            SELECT외에도 UPDATE와 DELETE에도 사용이 가능하다.
+        </p>
 
-            <h4><li><p>WHERE <br></h4>
-                SELECT 컬럼명 <br>
-                FROM 테이블명 <br>
-                WHERE age = 20; (특정 조건) <br><br>
-                조회 시 특정 검색 조건을 지정해준다.<br>
-                여러 조건을 주고 싶을 경우 AND 나 OR을 추가해준다. <br>
-                SELECT외에도 UPDATE와 DELETE에도 사용이 가능하다.
-            </p>
-            </li>
+        </li>
+        <h4><li><p>LIKE <br></h4>
+            SELECT 컬럼명 <br>
+            FROM 테이블명 <br>
+            WHERE name LIKE '%재%'; (이름에 재가 포함된 사람)<br><br>
+            WHERE에 추가적인 조건을 지정해준다.<br>
+            '재%' : 재로 시작하는 모든 데이터 <br>
+            '%재' : 재로 끝나는 모든 데이터 <br>
+            '%재%' : 재를 포함하는 모든 데이터 <br>
+            '재_' : 재로 시작하는 길이가 2인 데이터 <br>
+            '재____' : 재로 시작하는 길이가 5인 데이터 <br>
+            '재_%_%orwo__%' : 재로 시작하고 최소 3자리인 패턴(3자리 이상) <br>
+            SELECT외에도 UPDATE와 DELETE에도 사용이 가능하다.
+        </p>
 
-            <h4><li><p>LIKE <br></h4>
-                SELECT 컬럼명 <br>
-                FROM 테이블명 <br>
-                WHERE name LIKE '%재%'; (이름에 재가 포함된 사람)<br><br>
-                WHERE에 추가적인 조건을 지정해준다.<br>
-                '재%' : 재로 시작하는 모든 데이터 <br>
-                '%재' : 재로 끝나는 모든 데이터 <br>
-                '%재%' : 재를 포함하는 모든 데이터 <br>
-                '재_' : 재로 시작하는 길이가 2인 데이터 <br>
-                '재____' : 재로 시작하는 길이가 5인 데이터 <br>
-                '재_%_%orwo__%' : 재로 시작하고 최소 3자리인 패턴(3자리 이상) <br>
-                SELECT외에도 UPDATE와 DELETE에도 사용이 가능하다.
-            </p>
-            </li>
+        </li>
+        <h4><li><p>IN <br></h4>
+            SELECT 컬럼명 <br>
+            FROM 테이블명 <br>
+            WHERE 컬럼명 IN ('값', '값2'); <br><br>
+            컬럼에 값 or 값2이 있는 경우만 조회해준다.<br>
+            IN 대신 OR도 사용가능하다. <br>
+        </p>
 
-            <h4><li><p>IN <br></h4>
-                SELECT 컬럼명 <br>
-                FROM 테이블명 <br>
-                WHERE 컬럼명 IN ('값', '값2'); <br><br>
-                컬럼에 값 or 값2이 있는 경우만 조회해준다.<br>
-                IN 대신 OR도 사용가능하다. <br>
-            </p>
-            </li>
+        </li>
+        <h4><li><p>BETWEEN <br></h4>
+            SELECT age <br>
+            FROM 테이블명 <br>
+            WHERE age BETWEEN 20 AND 30; <br><br>
+            값이 지정된 범위 안에 있는지 확인 후 출력해준다.<br>
+            BETWEEN 대신 AND도 사용가능하다. <br>
+        </p>
 
-            <h4><li><p>BETWEEN <br></h4>
-                SELECT age <br>
-                FROM 테이블명 <br>
-                WHERE age BETWEEN 20 AND 30; <br><br>
-                값이 지정된 범위 안에 있는지 확인 후 출력해준다.<br>
-                BETWEEN 대신 AND도 사용가능하다. <br>
-            </p>
-            </li>
+        </li>
+        <h4><li><p>LIMIT <br></h4>
+            SELECT rowid, age <br>
+            FROM 테이블명 <br>
+            ORDER BY age <br>
+            LIMIT 10; <br><br>
+            정렬한 후 10번째 행까지만 출력<br>
+            쿼리에서 반환되는 행 수를 제한해준다.<br>
+        </p>
 
-            <h4><li><p>LIMIT <br></h4>
-                SELECT rowid, age <br>
-                FROM 테이블명 <br>
-                ORDER BY age <br>
-                LIMIT 10; <br><br>
-                정렬한 후 10번째 행까지만 출력<br>
-                쿼리에서 반환되는 행 수를 제한해준다.<br>
-            </p>
-            </li>
+        </li>
+        <h4><li><p>OFFSET <br></h4>
+            SELECT rowid, age <br>
+            FROM 테이블명 <br>
+            ORDER BY age <br>
+            LIMIT 10 OFFSET 10; <br><br>
+            정렬한 후 11번째 행부터 10개의 행을 출력한다.<br>       
+        </p>
+        </li>
 
-            <h4><li><p>LIMIT <br></h4>
-                SELECT rowid, age <br>
-                FROM 테이블명 <br>
-                ORDER BY age <br>
-                LIMIT 10; <br><br>
-                정렬한 후 10번째 행까지만 출력<br>
-                쿼리에서 반환되는 행 수를 제한해준다.<br>
-            </p>
-            </li>
+        <h3>Grouping data</h3>
 
-            <h4><li><p>OFFSET <br></h4>
-                SELECT rowid, age <br>
-                FROM 테이블명 <br>
-                ORDER BY age <br>
-                LIMIT 10 OFFSET 10; <br><br>
-                정렬한 후 11번째 행부터 10개의 행을 출력한다.<br>
-                
-            </p>
-            </li>
+        </li>
+        <h4><li><p>Aggregate function(집계함수) <br></h4>
+            SELECT AVG(컬럼명), COUNT(컬럼명), MAX(컬럼명).... <br>
+            FROM 테이블명 <br>
+            각 집합의 최대값, 최소값, 평균, 합계 및 개수를 계산해준다.<br>       
+            AVG() : 평균, COUNT() : 개수, MAX() : 최대값, MIN() : 최소값, SUM() : 합계<br> 
+            숫자를 기준으로 계산되기 떄문에 반드시 INT타입이어야 한다. <br>      
+        </p>
+        </li>
+        
+        </li>
+        <h4><li><p>GROUP BY<br></h4>
+            SELECT country, AVG(age)<br>
+            FROM 테이블명 <br>
+            GROUP BY country
+            지역별로 평균 나이 출력하기 <br>
+            선택된 컬럼 값을 기준으로 데이터(행)들의 공통 값을 묶어서 결과로 나타내준다.<br>
+        </p>
+        </li>
+        
+        <h3>Changing data</h3>
 
-        </ol>
+        </li>
+        <h4><li><p>INSERT<br></h4>
+            INSERT INTO 테이블명(컬럼명, ...) <br>
+            VALUES(컬럼 값, ...) <br>
+            새로운 행을 테이블에 입력해준다. <br>
+            테이블의 모든 속성에 값을 추가할때는 INSERT INTO 뒤에 테이블명만 작성하면된다. <br>
+        </p>
+        </li>
+
+        </li>
+        <h4><li><p>UPDATE<br></h4>
+            UPDATE 테이블명 <br>
+            SET 컬럼명 = 수정 할 값<br>
+            WHERE 조건<br>
+            WHERE 절을 사용해서 업데이트 할 컬럼을 지정해줄 수 있다. (필수는 아님)<br>
+        </p>
+        </li>
+
+        </li>
+        <h4><li><p>DELETE<br></h4>
+            DELETE FROM 테이블 <br>
+            WHERE 조건 <br>
+            테이블에서 행을 제거해준다.<br>
+            한번에 한 행, 여러 행, 모든행을 제거할 수 있다.<br>
+        </p>
+        </li>
     </ul>
-
   <p><br>
   </p>
-
-  <h3>참고</h3>
+  
+> <h3>참고</h3>
   <h4>VScode에서 SQL사용하기 <a href="https://stormpy.tistory.com/97">야곰야곰's S/W 공부</a></h4>
   <h4>SQLite Types <a href="https://araikuma.tistory.com/681">슬기로운 개발자 생활</a></h4>
   <h4>SQL 제약조건 <a href="https://m.blog.naver.com/regenesis90/222197289871">리제</a></h4>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+
+  <h3>이상(Anomaly)</h3>
+
+    <ul>
+        <li>릴레이션(DB테이블)에서 일부 속성들의 종속이나 중복으로 인해 데이터 조작시 불일치가 발생하는것.</li>
+        <li>테이블을 설계할 때 잘못 설계하여 데이터를 삽입, 삭제, 갱신할 때 논리적으로 오류가 발생하는것.</li>
+        <li>이상의 종류</li>
+        <ol>
+          <li>삽입 이상 : 데이터 삽입 시 의도와 다른 값들도 삽입되는 이상.</li>
+          <li>삭제 이상 : 데이터 삭제 시 의도와 다른 값들도 연쇄 삭제되는 이상.</li>
+          <li>갱신 이상 : 속성값 갱신 시 일부 튜플만 갱신되어 모순이 발생하는 이상.</li>
+        </ol>
+        <li>이러한 이상을 해결하기 위해 정규화를 한다.</li>
+    </ul>
+
+  <h3>정규화</h3>
+
+    <ul>
+        <b><li>데이터의 중복을 최소화하고 일관성과 무결성을 보장하기 위해 데이터를 구조화하는 프로세스를 정규화라고 한다.</li></b>
+        <li>즉, 크고 제대로 조직되지 않은 테이블들과 관계들을 작고 잘 조직된 테이블과 관계들로 나누는 것을 의미한다.</li>
+        <li>장점</li>
+        <ol>
+          <li>데이터베이스 변경 시 이상 현상을 제거할 수 있다.</li>
+          <li>데이터베이스와 연동된 응용 프로그램에 최소한의 영향만을 미치게 되어 응용프로그램의 생명을 연장시킨다.</li>
+        </ol>
+        <li>단점</li>
+        <ol>
+          <li>릴레이션의 분해로 인해 릴레이션 간의 JOIN연산이 많아진다.</li>
+          <li>질의에 대한 응답 시간이 느려질 수 있다.</li>
+        </ol>
+    </ul>
+
+  <h3>정규화 구조</h3>
+
+  <ol>
+        <h4><li>제 1정규형(1NF)</li></h4>
+        <ul>
+          <li>모든 속성의 도메인이 원자값만으로 되어 있는 정규형.</li>
+          <li>하나의 컬럼은 하나의 값만을 가져야 한다.</li>
+          <img style="width: 700px;" src="https://user-images.githubusercontent.com/110621233/230251635-4942367d-cee9-42d3-ad2e-86eae48a8851.png" alt="제1정규형">
+        </ul>
+        <h4><li>제 2정규형(2NF)</li></h4>
+        <ul>
+          <li>테이블이 제 1정규형이고, 기본키가 아닌 모든 속성이 기본키에 대하여 완전 함수적 종속을 만족하는 정규형</li>
+          <img style="width: 700px;" src="https://user-images.githubusercontent.com/110621233/230251629-00d29ed8-41c2-4d04-a0c6-47d105f651dc.png" alt="제 2정규형">
+        </ul>
+        
+        <h4><li>제 3정규형(3NF)</li></h4>
+        <ul>
+          <li>테이블이 제 2정규형이고, 기본키가 아닌 모든 속성이 기본키에 대해 이행적 함수적 종속을 만족하지 않는 정규형.</li>
+          <li>릴레이션에서 X, Y, Z라는 3 개의 속성이 있을 때 X→Y, Y→Z 이란 종속 관계가 있을 경우, X→Z가 성립될 때 이행적 함수 종속이라고 합니다</li>
+          <img style="width: 700px;" src="https://user-images.githubusercontent.com/110621233/230251633-5da78682-d6fc-443e-a5b6-0eea440d3558.png" alt="제 3정규형">
+        </ul>
+
+        <h4><li>BCNF</li></h4>
+        <ul>
+          <li>테이블에서 모든 결정자가 후보키인 정규형.</li>
+          <li>일반적으로 제 3정규형에 후보키가 여러 개 존재하고
+            이러한 후보키들이 서로 중첩되어 나타나는 경우에 적용 가능하다.</li>
+          <img style="width: 700px;" src="https://user-images.githubusercontent.com/110621233/230251634-fa1554cb-4779-465b-87d9-c2b6c45358ab.png" alt="제 3정규형">
+        </ul>
+
+        <hr>
+        <p>보통 정규화는 BCNF 까지만 하는 경우가 많다. <br>
+           그 이상 정규화를 하면 정규화의 단점이 나타날 수도 있기 때문이다. <br>
+          제 4정규형부터는 아래의 참고블로그를 보도록 하자.</p>
+        <h4><li>제 4정규형(4NF)</li></h4>
+        <ul>
+          <li>테이블이 BCNF를 만족하고 다치 종속이 없는 정규형.</li>
+          <li>다치 종속은 릴레이션 내의 두 어트리뷰트 집합 사이 성립하는 제약조건 중의 하나이다.</li>
+        </ul>
+
+        <h4><li>제 5정규형(5NF)</li></h4>
+        <ul>
+          <li>테이블의 모든 조인 종속이 테이블의 후보키를 통해서만 성립되는 정규형.</li>
+        </ul>
+    </ol>
+  
+  <p><br>
+  </p>
+
+  <h3>참고</h3>
+  <ol>
+    <li>JOIN이란? <a href="https://cotak.tistory.com/98">cotak</a></li>
+    <li>정규화 1편 <a href="https://goodgid.github.io/DB-Normalization%281%29/">goodgid</a></li>
+    <li>정규화 2편<a href="https://goodgid.github.io/DB-Normalization(2)/">goodgid</a></li>
+    <li>정규화 (4NF ~ 5NF) <a href="https://code-lab1.tistory.com/270">code-lab1</a></li>
+  </ol>
+  
+</body>
+</html>
