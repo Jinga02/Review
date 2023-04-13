@@ -1,0 +1,109 @@
+><!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+  <h2>Response JSON</h2>
+    <ul>
+        <li>지금까지와는 다르게 페이지(html)를 응답하는게 아닌, JSON데이터를 응답하는 서버로 변환 할 예정</li>
+        <li>JSON데이터를 받아 화면을 구성하여 사용자에게 보여주는 것은 Front-end Framework가 담당 할 예정</li>
+        <li>Front-end Framework는 Vue.js를 사용 할 예정</li>
+        <li>JSON을 응답하는 Django 서버 구성을 목표로 진행 할 예정</li>
+    </ul>
+  <h2>구현</h2>
+    <h4>사전준비</h4>
+    <ol>
+        <li>사용할 json파일과 함께 project(app, settings, urls...)준비 </li>
+        <img src="https://user-images.githubusercontent.com/110621233/231655258-e27577ac-3be5-42d1-aa0a-dc7900ffcc03.png" alt="프로젝트 url">
+        <img src="https://user-images.githubusercontent.com/110621233/231655262-8eb639d7-227e-4bc6-a586-3f1b4989d00d.png" alt="article url">
+        <li>fixtures파일을 load하여 초기 데이터 입력 <br>
+            python manage.py loaddata articles.json</li>
+    </ol>
+    <h4>JsonResponse()를 사용한 JSON응답</h4>
+    <p>html 하나를 응답하는 것이 아닌 JSON데이터를 응답해보기</p>
+    <ol>
+      <li>viesw 함수 작성</li>
+      <img src="https://user-images.githubusercontent.com/110621233/231655455-e7e80fdc-9b6c-49f7-b5f3-315d0df385ba.png" alt="JsonResponse views">
+      <li>결과 확인</li>
+      <img src="https://user-images.githubusercontent.com/110621233/231655458-c0e7feb7-1a13-440c-a1fe-3706307f081d.png" alt="JsonResponse 결과">
+    </ol>
+    <h4>serializers를 사용한 JSON응답</h4>
+    <p>JSON의 모든 필드를 모두 작성할 필요가 없어진다.</p>
+    <ol>
+      <li>views 함수 작성</li>
+      <img src="https://user-images.githubusercontent.com/110621233/231655541-f6594142-dcfe-4f18-bb9d-03f300092715.png" alt="serializers views">
+      <li>결과는 JsonResponse와 동일
+    </ol>
+    <h4>REST framework를 사용한 JSON응답</h4>
+      <ul>
+        <li>Restful API서버를 쉽게 구축 할 수 있도록 도와주는 오픈소스 라이브러리</li>
+        <li>Django의 Form, ModelForm클래스와 매우 유수하게 작동한다.</li>
+      </ul>
+      <ol>
+          <li>pip로 djangorestframework 설치 후 settings => INSTALLED_APPS에 rest_framework입력</li>
+          <li>사용 할 app에 serializers.py 생성</li>
+          <img src="https://user-images.githubusercontent.com/110621233/231655648-0ca8cc04-88a4-4d81-a5d0-643fce6a6d01.png" alt="REST framework serializers">
+          <li>views 함수 작성</li>
+          <img src="https://user-images.githubusercontent.com/110621233/231655652-6d9d531f-0166-4a60-9dea-dbf468661817.png" alt="REST framework views">
+          <li>결과 확인 , JSON데이터를 DRF전용 템플릿으로 응답해준다.</li>
+          <img src="https://user-images.githubusercontent.com/110621233/231655653-6bc990d3-7d89-404c-9748-698cb54efa4b.png" alt="REST framework 결과">
+      </ol>
+
+  ><h2>Django REST framework - Single Model</h2>
+      <p>단일 모델의 data를 serialization하여 JSON으로 변환하는 방법</p>
+      <ul>
+        <li>사전 준비(실습 시 위에서 만들 프로젝트를 사용)</li>
+        <ol>
+          <li>postman설치</li>
+          <p>postman이란 API를 구축하고 사용하기 위한 플랫폼이다. <br>
+             API를 빠르게 만들 수 있는 여러 도구 및 기능을 제공한다.</p>
+          <li>사용 할 프로젝트 생성, 앱 생성 및 초기 세팅</li>
+          <li>생성 한 앱에 모델 작성 및 migration 진행</li>
+          <li>fixtures 데이터 load</li>
+          <p>python manege.py loaddata 생성 한 앱.json</p>
+          <li>DRF설치, 등록 및 패키지 목록 업데이트</li>
+          <p>pip install djangorestframework</p>
+        </ol>
+        <li>모든 게시글 조회</li>
+        <ol>
+          <li>사용 할 urls와 serializer, views작성</li>
+          <img src="https://user-images.githubusercontent.com/110621233/231655740-ad2ff969-62a5-4cb4-aea8-466c62007c25.png" alt="Modelserializer url">
+          <img src="https://user-images.githubusercontent.com/110621233/231655746-fed8c827-087e-4237-bb48-f909e307e1c4.png" alt="Modelserializer serializer">
+          <img src="https://user-images.githubusercontent.com/110621233/231655745-b877fe7f-31f9-4ceb-a7af-e80f6eb3dadf.png" alt="Modelserializer views">
+          <li>postman에서 결과확인</li>
+        </ol>
+        <li>게시글 상세보기</li>
+        <ol>
+          <li>urls 작성</li>
+          <img src="https://user-images.githubusercontent.com/110621233/231655911-8b6a9748-86fd-4182-beb7-37623291330b.png" alt="Modelserializers 상세보기 urls">
+          <li>views 작성</li>
+          <img src="https://user-images.githubusercontent.com/110621233/231655914-31b905a6-31e0-44cd-8c18-448a9eb382a4.png" alt="Modelserializers 상세보기 views">
+          <li>postman에서 결과확인</li>
+                </ol>
+         <li>게시글 작성하기</li>
+        <ol>
+          <li>모든 게시글 조회 views 함수 수정</li>
+          <img src="https://user-images.githubusercontent.com/110621233/231694064-cafb6692-2f90-42bd-9ace-db2e3663a3a5.png" alt="게시글 작성">
+          <li>postman POST, body에 양식 맞춰 게시글 작성</li>
+        </ol>
+        <li>게시글 수정하기</li>
+        <ol>
+          <li>게시글 상세보기 views 함수 수정</li>
+          <img src="https://user-images.githubusercontent.com/110621233/231694058-e72cfe17-1df1-4a3a-b92c-470b85c79ad4.png" alt="게시글 수정">
+          <li>postman PUT, body에 양식 맞춰 게시글 작성</li>
+        </ol>
+        <li>게시글 삭제하기</li>
+        <ol>
+          <li>게시글 상세보기 views 함수 수정</li>
+          <img src="https://user-images.githubusercontent.com/110621233/231694068-b5eca16a-3351-44cf-9289-7cae2e73e39a.png" alt="게시글 삭제">
+          <li>postman DELETE, body에 양식 맞춰 게시글 작성</li>
+        </ol>
+      </ul>
+      
+   ><h2>참고</h2>
+       <h4> postman사용법 <a href="https://binit.tistory.com/17">binit</a></h4>
+  	   <h4>get_list_or_404 <a href="https://velog.io/@2jiyeong0/TIL22.10.27">2jiyeong0</a></h4>
+
+  
+</body>
+</html>
