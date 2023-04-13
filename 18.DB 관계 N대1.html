@@ -1,0 +1,142 @@
+<img src="https://user-images.githubusercontent.com/110621233/231062359-1b7d42fd-45a2-4605-8034-c342d05d5a9d.png"></img>
+> <!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+  <h3>정참조</h3>
+   <ul>
+ 		<li>내가 참조하는 table에 접근하는 것 </li>
+        <li>해당 객체가 다른 객체의 ForeignKey를 가지고 있거나 1:1 관계인 상황에서 참조 하는 경우</li>
+    </ul>
+    <ul><h3>역참조</h3>
+        <li>나를 참조하는 table에 접근하는 것</li>
+        <li>다른 객체가 ForeignKey를 가지고 있거나 N:N 관계인 상황, <br>
+            해당 객체를 참조하고 있는 다른 객체를 참조하려는 경우</li>
+        <li>역참조 구현하기
+            <ol>
+                <li>article = Article.objects.get(id = 2(확인 할 id))</li>
+                <li>dir(클래스이름)함수를 사용해 클래스 객체가 사용할 수 있는 메서드 확인</li>
+                <li>1번 게시글에 작성된 모든 댓글 조회<br>
+                    N:1 관계에서 생성되는 related manager의 이름은 참조하는 '모델명_set'로 만들어진다. <br>
+                    article.comment_set.all()</li>
+                <li>1번 게시글에 작성된 모든 댓글 출력하기<br>
+                    comments = article.comment_set.all() <br>
+                    for comment in comments: <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(comment.content)</li>
+            </ol>
+        </li>
+        <li>related_name
+            <ul>
+                <li>model의 foreignkey에 related_name = comments를 추가하면 <br>
+                    article.comment_set.all() 대신  article.comments.all() 가능</li>
+            </ul>
+        </li>
+        <li>관리자사이트에서 수정하고 싶으면 admin에 Comment 클래스 추가</li>
+    </ul>
+  
+>  <h3>테이블간 관계</h3>
+>    <ol>
+        <li>1:1 : 한 테이블의 레코드 하나가 다른 테이블의 레코드 단 한 개와 관련된 경우</li>
+        <li>N:1 : 한 테이블의 0개 이상의 레코드가 다른 테이블의 레코드 한 개와 관련된 경우</li>
+        <li>N:M : 한 테이블의 0개 이상의 레코드가 다른 테이블의 0개 이상의 레코드와 관련된 경우</li>
+    </ol>
+  <h3>N : 1 (Comment : Article)</h3>
+<ul>
+        <li>1개의 게시글(Article)에 N개의 댓글(Comment)</li>
+        <li>ForeignKey(to, on_delete...) <br>
+            N : 1을 담당하는 Django의 모델 필드 클래스, 외래 키 속성을 담당한다. <br>
+            참조하는 model class와 on_delete옵션은 필수이다.
+        </li>
+        <li>shell_plus로 댓글 구현하기
+            <ol>
+                <li>Comment 모델 정의 <br>
+                    <img src="https://user-images.githubusercontent.com/110621233/230808972-aaf4b737-7058-4d5d-80c6-f5c7da07cf16.png" alt="">
+                </li>
+                <li>모델 정의 후에는 항상 Migration과정 진행</li>
+                <li>Comment 클래스의 인스턴스 comment 생성 <br>
+                    comment = Comment()</li>
+                <li>인스턴수 변수 저장<br>
+                    comment.content = '첫번째 댓글'</li>
+                <li>게시글 생성<br>
+                    article = Article.objects.create(title='제목', content='내용')</li>
+                <li>외래키 입력 comment의 article는 Article의 article를 참조한다.<br>
+                    comment.article =article</li>
+                <li>DB에 comment저장 및 확인<br>
+                    comment.save() <br>
+                    comment</li>
+                <li>두번째 댓글 작성해보기<br>
+                    comment = Comment(contet='두번째 댓글', article=article) <br>
+                    comment.save()</li>
+            </ol>
+        </li>
+
+  >  
+    >   <li>웹 페이지에 구현하기(create)</li>
+            <ol>
+                <li>댓글 데이터를 받기 위한 form작성</li>
+                <img src="https://user-images.githubusercontent.com/110621233/230835405-229d54cc-0208-45cb-92c6-12a9a0d333a9.png" alt="create1">
+                <li>detail 페이지에서 form을 출력하기 위해 views의 함수수정</li>
+                <img src="https://user-images.githubusercontent.com/110621233/230835406-c5ed4c69-dd09-4946-a7d0-fb20cfcb061e.png" alt="create2">
+                <li>detail 페이지에 CommentForm을 출력</li>
+                <img src="https://user-images.githubusercontent.com/110621233/230835401-6ad4bbe6-6fdd-4069-af0c-4fe11f0d3eb1.png" alt="create3">
+                <li>Comment클래스의 외래키 필드인 article또한 입력이 필요하기 때문에 화면처럼 보여진다.</li>
+                <img src="https://user-images.githubusercontent.com/110621233/230835404-9a16d383-bdf6-469b-90a4-ce53305bdb9f.png" alt="create4">
+                <li>외래키 필드는 view 함수 내에서 별도로 처리되어야 하므로, Commentform에서 article 필드 제외</li>
+                <img src="https://user-images.githubusercontent.com/110621233/230836419-feb793a8-e0c4-4895-a358-d2cb7a2c324c.png" alt="create5">
+                <li>출력에서 제외 된 외래키 데이터 받아오기.</li>
+                <img src="https://user-images.githubusercontent.com/110621233/230836818-47fff1b7-ff35-4ab8-bf51-1bfc3cf13475.png" alt="create6">
+                <img src="https://user-images.githubusercontent.com/110621233/230836820-19f02906-0be7-4614-8dd2-c1977751b465.png" alt="create7">
+                <img src="https://user-images.githubusercontent.com/110621233/230836814-5844aad6-8aa2-4599-8fa8-e2630a3644fe.png" alt="create8">
+            </ol>
+  
+>
+  <li>작성한 댓글 출력하기(read)</li>
+        <ol>
+            <li>선택한 article에 있는 모든 댓글 가져오기</li>
+            <img src="https://user-images.githubusercontent.com/110621233/230838172-816d093a-e4b6-41ec-8772-1fceb41a7322.png" alt="read1">
+            <li>출력하기</li>
+            <img src="https://user-images.githubusercontent.com/110621233/230838176-83efb53d-369b-4abb-b98e-1a1ae58bf129.png" alt="read2">  
+          <li>댓글출력 결과 </li>
+            <img src="https://user-images.githubusercontent.com/110621233/230838277-2785ef85-29f7-472a-a15b-cc8b71f81af2.png" alt="read3">
+        </ol>
+  
+>  <li>작성한 댓글 삭제하기(delete)</li>
+        <ol>
+            <li>삭제 구현하기</li>
+            <img src="https://user-images.githubusercontent.com/110621233/230839592-c9b4eb91-844e-497e-bc60-a501238a9241.png" alt="delete1">
+            <li>삭제 함수</li>
+            <img src="https://user-images.githubusercontent.com/110621233/230839594-a4bd9739-48c8-4ec4-97b5-a611335aa509.png" alt="delete2">
+            <li>detail 템플릿에 추가</li>
+            <img src="https://user-images.githubusercontent.com/110621233/230839589-283bb65f-c64d-4441-a22f-ece806fbab14.png" alt="delete3">
+            <li>삭제 결과</li>
+            <img src="https://user-images.githubusercontent.com/110621233/230839590-c4714518-3268-429a-8b3b-4be170539fde.png" alt="delete4">
+        </ol>
+  
+>    <li>추가사항</li>
+        <ul>
+            <li>DTL filter - length</li>
+            <ol>
+                <li>detatil 템플릿에 작성 <br>
+                    article.comments|length도 가능 <br>
+                    comments.count or article.comment.count 둘 다 가능</li>
+                <img src="https://user-images.githubusercontent.com/110621233/230840652-027ca151-321c-4934-8f70-5f3c27265122.png" alt="length1">
+                <li>결과</li>
+                <img src="https://user-images.githubusercontent.com/110621233/230840653-208332fa-af76-416e-83f6-fee1ef578a11.png" alt="length2">
+            </ol>
+            <li>댓글이 없을경우</li>
+            <ol>
+                <li>detatil 템플릿에 작성</li>
+                <img src="https://user-images.githubusercontent.com/110621233/230840656-64fc8597-d894-4f16-8e07-09802169c80e.png" alt="empty1">
+                <li>결과</li>
+                <img src="https://user-images.githubusercontent.com/110621233/230840658-8e5ad760-ea3e-49ca-9b9f-3b5275e6c6a2.png" alt="empty2">
+            </ol>
+        </ul>
+    </ul>
+ 
+ > <h3>참고</h3>
+  <a href="https://velog.io/@gillog/DB-11-1N-NM-%EA%B4%80%EA%B3%84">@gillong</a>
+  
+  <img src="https://user-images.githubusercontent.com/110621233/231062359-1b7d42fd-45a2-4605-8034-c342d05d5a9d.png"></img>
+</body>
+</html>

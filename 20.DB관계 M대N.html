@@ -1,0 +1,101 @@
+<img src="https://user-images.githubusercontent.com/110621233/231062359-1b7d42fd-45a2-4605-8034-c342d05d5a9d.png"></img>
+> <!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+  <h3>N : M (의사 - 환자)</h3>       
+        <ul>
+            <li>한 테이블의 0개 이상의 레코드가 다른 테이블의 0개 이상의 레코드와 관련된 경우</li>
+            <li>양쪽 모두 N:1의 관계를 가진다.</li>
+            <li>M:N의 예시로 의사와 환자가 있다.</li>
+        </ul>
+    <h3>ManyToManyField</h3>
+        <ul>
+            <li>다대다(M:N)관계 설정 시 사용하는 모델이다.</li>
+            <li>다대다관계를 가진 테이블 둘 중 하나에서 상대방을 참조하는 필드를 만들고 <br>
+                ManyToManyField를 정의하면 된다.</li>
+            <li>Arguments</li>
+            <ol>
+                <li>related_name <br>
+                    target 모델이 source 모델을 참조할 때 사용 할 manager 이름 <br>
+                    ForeignKey의 related_name과 동일하다. <br>
+              		참조되는 테이블이 참조하는 테이블의 데이터를 가져오고 싶을 때 사용하는 이름을 정의하는 것</li>
+                <li>through <br>
+                    중개테이블을 직접 작성하는 경우에 중개테이블을 나타내는 Django의 모델을 지정할 수 있게 해준다.</li>        
+                <li>symmetrical <br>
+                    기본값은 True이며, source 모델의 인스턴스가 target 모델의 인스턴스를 참조하면 <br>
+                    자동으로 target모델의 인스턴스도 source 모델의 인스턴스를 자동으로 참조하도록 해준다.</li>
+            </ol>            
+        </ul>
+  
+   ><h3>의사와 환자간 예약 시스템 구현</h3>
+        <ol>
+            <li>새로운 project 생성 후 hospitals app생성</li>
+            <li>hospitals의 model에 Doctor, Patient 클래스 생성 <br>
+                DB정규화를 지키기 위해 동일한 환자지만 다른 의사에게 예약하기 위해서는 <br>
+                객체를 하나 더 만들어서 예약을 진행하게 해야한다.</li>
+            <img src="https://user-images.githubusercontent.com/110621233/231034355-d303e80c-1a64-4dc1-b0ff-2e79418ecba3.png" alt="hospital models">
+            <li>shell_plus로 객체 생성해보기</li>
+            <ol>
+                <li>의사1 생성 <br>
+                    doctor1 = Doctor.objects.create(name='JAEHWAN')</li>
+                <li>환자1 생성 <br>
+                    patient1 = Patient.objects.create(name = 'MINSU')</li>
+                <li>예약 생성 <br>
+                    Reservation.objects.create(doctor=doctor1, patient=patient1)</li>
+                <img src="https://user-images.githubusercontent.com/110621233/231033883-7d32c710-0ddf-4437-bf71-17af85d6fa06.png" alt="shell_plus]">
+            </ol>
+            <li>ManyToManyField를 사용해서 중개테이블 대체하기 <br>
+                <b>중개테이블에 추가적인 데이터를 사용하려면 직접 중개테이블을 만들어야한다.</b></li>
+            <img src="https://user-images.githubusercontent.com/110621233/231035888-ee9ae7e7-912f-4039-95fb-99d86ea22b50.png" alt="MantToManyField">
+            <img src="https://user-images.githubusercontent.com/110621233/231035885-5f4ddd56-d178-4d72-a957-86373cbb6831.png" alt="MantToManyField DB">
+            <li>shell_plus로 객체 생성해보기</li>
+            <ol>
+                <li>의사1 생성 <br>
+                    doctor1 = Doctor.objects.create(name='JAEHWAN')</li>
+                <li>환자1, 환자2 생성<br>
+                    patient1 = Patient.objects.create(name = 'MINSU') <br>
+                    patient2 = Patient.objects.create(name = 'MINJI')</li>
+                <li>예약 생성 patient1이 doctor1에게 예약<br>
+                    patient1.doctors.add(doctor1) <br>
+                <img src="https://user-images.githubusercontent.com/110621233/231035887-0fb60c62-944a-4758-a810-b6d51e2f39af.png" alt="MantToManyField 결과">
+                <li>예약 취소(삭제하기) <br>
+                    doctor1.patient_set.remove(patient1) <br>
+                    patient2.doctors.remove(doctor1)</li>
+            </ol>
+            <li>through옵션을 사용해 사용하려는 중개 테이블을 나타내는 Django 모델을 지정할 수 있다. <br>
+                </li>
+            <img src="https://user-images.githubusercontent.com/110621233/231040913-a07d5b0d-b4f9-41bd-9446-3aadc425a021.png" alt="through">
+            <img src="https://user-images.githubusercontent.com/110621233/231041093-f72e9d01-f871-4745-9a12-0865ee0cb9c7.png" alt="through DB">
+        </ol>
+  
+>    <h3>좋아요 구현해보기</h3>
+    <ol>
+        <li>Article의 models에 ManyToManyField작성</li>
+        <img src="https://user-images.githubusercontent.com/110621233/231046271-b024f5b6-89d6-4605-8869-333992e5ae4b.png" alt="좋아요1 models">
+        <li>위와 같이 작성하고 migrate시 에러가 발생한다. <br>
+            like_users 필드 생성 시 자동으로 역참조에는 .article_set 매니저가 생성된다. <br>
+            그러나 이전 N:1관계에서 이미 해당 매니저를 사용중이기 때문에, <br>
+            user가 작성한 글들(user.article_set)과 user가 좋아요를 누른 글(user.article_set)을 구분할 수 없게 된다. <br>
+            그렇기때문에 에러가 발생한 것이고, 이를 해결하기 위해 user와 관계된 ForeignKey 또는 ManyToManyField중 하나에 related_name을 작성해줘야 한다.</li>
+        <img src="https://user-images.githubusercontent.com/110621233/231046276-cc2a92b0-bd92-4d78-a2cf-c527ec28a13b.png" alt="좋아요2 models related">
+        <li>좋아요 urls 작성</li>
+        <img src="https://user-images.githubusercontent.com/110621233/231059873-b3eed243-6326-4989-a295-c1559ae28d4e.png" alt="좋아요4 url">
+        <li>좋아요 views 함수 작성</li>
+        <img src="https://user-images.githubusercontent.com/110621233/231059876-09a5de81-3611-474b-8ac5-7fced7124d1f.png" alt="좋아요5 index">
+        <li>index 템플릿에 좋아요 출력</li>
+        <img src="https://user-images.githubusercontent.com/110621233/231059880-5b4c8d72-629c-429f-a055-31388de1eeb3.png" alt="좋아요5 views">
+        <li>결과</li>
+        <img src="https://user-images.githubusercontent.com/110621233/231059881-d1f9397e-55b0-4009-8c36-fdf7bedde385.png" alt="좋아요6 결과1">
+        <img src="https://user-images.githubusercontent.com/110621233/231059883-ebbca5bc-f82d-4db6-bfdd-c7af94eeac33.png" alt="좋아요6 결과2">
+      <b><li>좋아요 버튼을 하트로 바꾸고 싶다면 fontawesome 사용 </li></b>
+    </ol>
+   
+   > <b>참고
+    M:N 관계<a href="https://velog.io/@jiffydev/Django-9.-ManyToManyField-1">jifftdev</a>
+    M:N Argument <a href="https://velog.io/@jiffydev/Django-11.-ManyToManyField-2">jifftdev</a></b>
+  
+  <img src="https://user-images.githubusercontent.com/110621233/231062359-1b7d42fd-45a2-4605-8034-c342d05d5a9d.png"></img>
+   </body>
+</html>

@@ -1,0 +1,59 @@
+<img src="https://user-images.githubusercontent.com/110621233/231062359-1b7d42fd-45a2-4605-8034-c342d05d5a9d.png"></img>
+> <!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+  <h3>Django에서 User모델 참조하는 방법</h3>
+    <ol>
+        <li>settings.AUTH_USER_MODEL</li>
+        <ul>
+            <li>settings.py에서 AUTH_USER_MODEL 지정 후 from django.conf import settings로 참조한다.</li>
+            <li>반환 값 : 'accounts.User' (문자열)</li>
+            <li>User 모델에 대한 외래 키 또는 M:N 관계를 정의 할 때 사용한다.</li>
+            <b><li>models.py의 모델 필드에서 User모델을 참조할 때 사용한다.</li></b>
+        </ul>
+        <li>get_user_model()</li>
+        <ul>
+            <li>from django.contrib.auth import get_user_model로 참조한다,</li>
+            <li>반환 값 : User Object(객체)</li>
+            <li>현재 활성화 된 User모델을 반환한다.</li>
+            <b><li>models.py가 아닌 다른 모든 곳에서 유저 모델을 참조할 때 사용한다.</li></b>
+        </ul>
+    </ol>
+
+  >
+  <h3>Atricle과 User간 모델 관계 설정</h3>
+    <ol>
+        <li>Aticle 모델에 User 모델을 참조하는 외래키 작성</li>
+        <img src="https://user-images.githubusercontent.com/110621233/230849915-d06f230b-29a5-40d0-9a25-fe4ec0bbb2f1.png" alt="참조1">
+        <li>새로운 컬럼을 추가해줬으니 Migration 진행</li>
+        <li>Django에서 기본적으로 모든 컬럼은 NOT NULL 제약조건이 있기 때문에 기본값을 입력해주어야 한다.</li>
+    </ol>
+  <h3>인증된 상태로 CRUD 구현하기</h3>
+    <ol><h3>CREATE</h3>
+        <li>CommentForm처럼 create 템플릿에 불필요한 필드(user)가 출력되기 때문에 form을 수정해준다.</li>
+        <img src="https://user-images.githubusercontent.com/110621233/230856617-3322d72a-e88c-4e6d-92eb-9aa6c9da3c44.png" alt="인증 create1">
+        <li>게시글 작성시 외래키에 저장되어야 할 작성자 정보가 누락되었기 때문에 에러가 발생한다. <br>
+            게시글 작성 시 작성자 정보가 함꼐 저장될 수 있도록 view의 함수 수정 </li>
+        <img src="https://user-images.githubusercontent.com/110621233/230856618-33aef71e-ef33-43a1-a963-705917dd5564.png" alt="인증 create2">
+    </ol>
+    <ol><h3>DELETE</h3>
+        <li>작성자 정보가 detail에 담겨있기때문에, 삭제를 요청한 user와 작성자가 동일하면 삭제할 수 있도록 한다.</li>
+        <img src="https://user-images.githubusercontent.com/110621233/230857994-04506e91-60c7-4f3e-ae28-0400887c1ade.png" alt="인증 delete1">
+    </ol>
+    <ol><h3>UPDATE</h3>
+        <li>DELETE와 마찬가지로 수정 요청 user와 작성자가 동일하면 수정할 수 있도록 한다.</li>
+        <img src="https://user-images.githubusercontent.com/110621233/230864429-1c4f5267-3702-4bc5-b5cd-b31874900c9a.png" alt="인증 update1">
+        <li>작성자가 동일할 시 버튼 출력</li>
+        <img src="https://user-images.githubusercontent.com/110621233/230864421-f862216a-c611-42a7-96f9-5e9f38c6bb66.png" alt="인증 update2">
+    </ol>
+    <ol><h3>READ</h3>
+        <li>index와 detail 템플릿에 user출력</li>
+        <img src="https://user-images.githubusercontent.com/110621233/230865089-f6912027-74bd-46be-b731-32794e5600cd.png" alt="인증 read1">
+        <img src="https://user-images.githubusercontent.com/110621233/230865092-a503f6eb-222c-472b-a95c-03e9cbf25d23.png" alt="인증 read2">
+    </ol>
+  
+  <img src="https://user-images.githubusercontent.com/110621233/231062359-1b7d42fd-45a2-4605-8034-c342d05d5a9d.png"></img>
+</body>
+</html>
