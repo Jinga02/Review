@@ -1,3 +1,5 @@
+<img src="https://user-images.githubusercontent.com/110621233/231062359-1b7d42fd-45a2-4605-8034-c342d05d5a9d.png"></img>
+
 > <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,7 +32,7 @@
                 <li>GET</li>
                 <ul>
                     <li>서버에 resource의 표현을 요청한다.</li>
-                    <li>GET을 사용한응 요청은 데이터만 검색해야 한다.</li>
+                    <li>GET을 사용한 요청은 데이터만 검색해야 한다.</li>
                 </ul>
                 <li>POST</li>
                 <ul>
@@ -182,5 +184,30 @@
             <li>비동기 브라우저/서버 통신 (AJAX)을 위해, 넓게는 XML(AJAX가 사용)을 대체하는 주요 데이터 포맷이다.</li>
         </ul>
     </ul>
+
+    <h2>DRF와 Serializer</h2>
+    <ul>
+        <li>DRF란</li>
+        <ul>
+            <li>Django Rest Framework</li>
+            <li>Django를 기반으로 REST API 서버를 만들기 위한 라이브러리이다.</li>
+            <li>Django는 자체적인 웹 템플릿에게 데이터를 전달해주고, DRF는 다양한 플랫폼의 클라이언트에게 <br>
+                데이터르르 전달해준다는 주 목적에 차이가 있다.</li>
+            <li>백엔드 API 서버 개발을 위한 목적으로 사용되며, 주로 JSON으로 응답한다.</li>
+            <li>일반적으로 Django의 모델 객체를 JSON 문자열로 변환(직렬화)한 결과를 반환한다.</li>
+            <h4><a href="https://www.django-rest-framework.org/">DRF공식문서</a></h4>
+        </ul>
+
+        <li>Serialize(직렬화)</li>
+        <ul>
+            <li>쿼리셀, 모델 인스턴스와 같은 복잡한 데이터를 JSON, XML과 같이 간단한 데이터로 변환하는것을 뜻한다.</li>
+            <li>Django의 모델로부터 추출한 queryset 또는 모델 객체를 JSON타입으로 변환해주기 위해서 사용된다.</li>
+            <li>즉, Serializer는 우리가 Django에서 사용하는 파이썬 객체나 쿼리셋 같이 복잡한 객체들을 Rest API에서 사용할 간단한 JSON 형태로 변환해주는 어댑터같은 것이다.</li>
+            <li>ModelSerializer를 사용해 직렬화한다.</li>
+        </ul>
+    </ul>
+
+  <img src="https://user-images.githubusercontent.com/110621233/231062359-1b7d42fd-45a2-4605-8034-c342d05d5a9d.png"></img>
+
 </body>
 </html>

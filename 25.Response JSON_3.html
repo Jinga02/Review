@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+<img src="https://user-images.githubusercontent.com/110621233/231062359-1b7d42fd-45a2-4605-8034-c342d05d5a9d.png"></img>
+  <h2>Serializer 활용하기</h2>
+    <ul>
+        <h4><li>특정 게시물의 모든 댓글 조회하기</li></h4>
+        <ol>
+            <li>댓글 생성 url 수정</li>
+            <img src="" alt="">
+            <li>views list + create 합치기</li>
+            <img src="" alt="">
+            <li>postman 양식 작성</li>
+        </ol>
+
+        <h4><li>comments_set 필드명 수정, article id 삭제 </li></h4>
+        <p>to_representation()사용해보기 / 모델이나 serializer 수정 없이 필드 수정</p>
+        <ol>
+            <li>Serializer 수정-필드명 수정</li>
+            <img src="https://user-images.githubusercontent.com/110621233/232385101-b7aed61d-5838-4992-83c0-5aa0a4004808.png" alt="to_representation 1">
+            <li>Serializer 수정-article id 삭제</li>
+            <img src="https://user-images.githubusercontent.com/110621233/232385111-b1cc81c1-5335-428c-805a-a1000d8eb4a9.png" alt="to_representation 3">
+            <li>postman 확인(article 사라지고, comments_set 가 comment로 변경</li>
+            <img src="https://user-images.githubusercontent.com/110621233/232384656-c6d82fc4-e5e4-49bd-bba4-e9d66b39fda2.png" alt="to_representation 2">
+        </ol>
+
+        <h4><li>게시글 상세 조회시에 작성자 정보도 함께/ 목록조회는 지금처럼</li></h4>
+        <p>상속 이용하기</p>
+        <ol>
+            <li>Serializer 수정</li>
+            <img src="https://user-images.githubusercontent.com/110621233/232389546-9ff80d1d-2d53-4fbd-bac4-c35eca1d3827.png" alt="게시글 상세 조회 시 작성자 정보까지 serializer">
+            <li>views 수정</li>
+            <img src="https://user-images.githubusercontent.com/110621233/232389551-84448323-73c3-494c-95b3-dc29da2c2737.png" alt="게시글 상세 조회 시 작성자 정보까지 view">
+            <li>postman 결과확인해보기</li>
+        </ol>
+    </ul>
+
+  <h2>Swagger를 통한 API 문서화</h2>
+  <h3><a href="https://velog.io/@emrrbs9090/DjangoSwagger-with-DRFyasg">David</a></h3></body>
+  <img src="https://user-images.githubusercontent.com/110621233/231062359-1b7d42fd-45a2-4605-8034-c342d05d5a9d.png"></img>
+
+</html>

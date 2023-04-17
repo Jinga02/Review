@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+  <img src="https://user-images.githubusercontent.com/110621233/231062359-1b7d42fd-45a2-4605-8034-c342d05d5a9d.png"></img>
+  ><h2>Django REST framework - Single Model</h2>
+  <ul>
+    <h4><li>게시글 생성하기</li></h4>
+    <p>요청에 대한 생성 성공 시 201 Created 상태코드 표시, 실패 시 400 Bad request 표시</p>
+    <ol>
+      <li>views 함수 수정</li>
+      <img src="https://user-images.githubusercontent.com/110621233/232360506-047964ab-265a-47e1-9c13-ad0837267f94.png" alt="list_created">
+      <li>postman 양식 맞춰 작성</li>
+      <img src="https://user-images.githubusercontent.com/110621233/232360222-cbc99356-76b4-4302-9d6f-7106cdd3b74a.png" alt="list_created_postman">
+    </ol>
+
+    <h4><li>게시글 삭제하기</li></h4>
+    <p>요청에 대한 생성 성공 시 204 No Content 상태코드 표시</p>
+    <ol>
+      <li>views 함수 수정</li>
+      <img src="https://user-images.githubusercontent.com/110621233/232361683-b5e575cd-6893-4908-8f51-9ee0c21f5b2c.png" alt="DELETE">
+      <li>postman 양식 맞춰 작성</li>
+      <img src="https://user-images.githubusercontent.com/110621233/232361687-43cfe0a5-8749-438d-a9cd-a58857f15995.png" alt="DELETE_postman">
+    </ol>
+
+    <h4><li>게시글 수정하기</li></h4>
+    <p>요청에 대한 생성 성공 시 200 OK 상태코드 표시</p>
+    <ol>
+      <li>views 함수 수정</li>
+      <img src="https://user-images.githubusercontent.com/110621233/232362177-a4461278-debc-4419-8d2e-bb5481f35376.png" alt="UPDATE">
+      <li>postman 양식 맞춰 작성</li>
+      <img src="https://user-images.githubusercontent.com/110621233/232362183-aaf8485c-6d56-4813-bc8c-1131c0218133.png" alt="UPDATE_postman">
+    </ol>
+  </ul>
+  
+
+  ><h2>Django REST framework - N : 1 relation</h2>
+
+    <ul>
+      <h4><li>댓글 사전준비</li></h4>
+      <p></p>
+      <ol>
+        <li>models에서 class 작성</li>
+        <img src="https://user-images.githubusercontent.com/110621233/232363617-63a2c172-fb22-413c-b63f-97fb3d7b1c77.png" alt="comment_model">
+        <li>migrate, json 데이터 로드</li>
+      </ol>
+
+      <h4><li>댓글 조회</li></h4>
+      <p></p>
+      <ol>
+        <li>serializers 작성</li>
+        <img src="https://user-images.githubusercontent.com/110621233/232363609-3567953c-f61f-4e01-8120-b8d2b0a1ef92.png" alt="comment_serializers">
+        <li>urls 작성</li>
+        <img src="https://user-images.githubusercontent.com/110621233/232363615-b8444165-bc91-481b-89ce-2d38e9cbc1d8.png" alt="comment_urls">
+        <li>views 작성</li>
+        <img src="https://user-images.githubusercontent.com/110621233/232363616-3582999a-ba3d-47a0-b552-82f0c3968396.png" alt="comment_view">
+        <li>postman 양식 맞춰 작성</li>
+        <img src="https://user-images.githubusercontent.com/110621233/232363618-4eedca87-0faa-4afd-850f-7493c7ec2b97.png" alt="comment_postman">
+      </ol>
+
+      <h4><li>댓글 상세조회</li></h4>
+      <p></p>
+      <ol>
+        <li>urls 작성</li>
+        <img src="https://user-images.githubusercontent.com/110621233/232364726-9d9455c2-91c1-4fcd-bfea-192fa6acd8f2.png" alt="comment_detail_urls">
+        <li>views 작성</li>
+        <img src="https://user-images.githubusercontent.com/110621233/232364729-d36d81f2-71c2-44b9-b24d-11291f6023a6.png" alt="comment_detail_view">
+        <li>postman 양식 맞춰 작성</li>
+        <img src="https://user-images.githubusercontent.com/110621233/232364723-1726f5b4-6c93-4005-8423-10c76c28385d.png" alt="comment_detail_postman">
+      </ol>
+
+      <h4><li>댓글 작성</li></h4>
+      <p></p>
+      <ol>
+        <li>urls 작성</li>
+        <img src="https://user-images.githubusercontent.com/110621233/232366054-1fc89813-576a-49f2-97c1-7d477d21be36.png" alt="comment_create_urls">
+        <li>views 작성</li>
+        <img src="https://user-images.githubusercontent.com/110621233/232366046-a21bfbd1-5fac-45d4-81ec-79968bbe647f.png" alt="comment_create_view">
+        <li>serializer 수정</li>
+        <img src="https://user-images.githubusercontent.com/110621233/232366051-6cb17397-a631-4bec-931a-f15c258182b9.png" alt="comment_create_serializer수정">
+        <li>postman 양식 맞춰 작성</li>
+        <img src="https://user-images.githubusercontent.com/110621233/232366047-8ceb9199-715d-495c-81ad-5c513174081e.png" alt="comment_create_postman">
+      </ol>
+
+      <h4><li>댓글 삭제</li></h4>
+      <p></p>
+      <ol>
+        <li>views 작성</li>
+        <img src="https://user-images.githubusercontent.com/110621233/232367578-65c7b6ba-2967-46d7-8048-d0cfbf4ba329.png" alt="comment_delete_view">
+        <li>postman 양식 맞춰 작성</li>
+        <img src="https://user-images.githubusercontent.com/110621233/232367577-d3199d9d-4dfd-4f62-a7d0-b8466b941684.png" alt="comment_delete_postman">
+      </ol>
+
+      <h4><li>댓글 수정</li></h4>
+      <p></p>
+      <ol>
+        <li>views 작성</li>
+        <img src="https://user-images.githubusercontent.com/110621233/232367576-ab56541c-5a79-45fe-aede-e7b079bcaa4e.png" alt="comment_update_view">
+        <li>postman 양식 맞춰 작성</li>
+        <img src="https://user-images.githubusercontent.com/110621233/232367573-9498b52b-d915-448a-a16b-2fcd176cc996.png" alt="comment_update_postman">
+      </ol>
+    </ul>
+
+    ><h2>Django REST framework - N : 1 relation 역참조</h2>
+
+    <ul>
+      
+      <h4><li>특정 게시글에 작성된 댓글 목록 조회</li></h4>
+      <p>기존 필드 override - Article Detail (Serializer는 기존 필드를 override하거나 추가적인 필드를 구성할 수 있다. <br>
+         게시글 조회 시 해당 게시글의 댓글 목록까지 함께 출력하기</p>
+
+      <ol>
+        <li>serializers 수정</li>
+        <img src="https://user-images.githubusercontent.com/110621233/232370095-dbf7ffe0-3193-4fe0-bf5d-325254edaf9a.png" alt="역참조_댓글출력_serializers">
+        <li>postman 결과</li>
+        <img src="https://user-images.githubusercontent.com/110621233/232370097-444fe39e-d216-4b58-92bb-297020e43b63.png" alt="역참조_댓글출력_postman">
+      </ol>
+
+      <h4><li>특정 게시글에 작성된 댓글의 개수 조회 </li></h4>
+      <p>게시글 조회 시 해당 게시글의 댓글 개수까지 함께 출력하기</p>
+
+      <ol>
+        <li>serializers 수정</li>
+        <img src="" alt="">
+        <li>postman 결과</li>
+        <img src="" alt="">
+      </ol>
+
+      <h4><li>특정 게시글에 작성된 댓글의 개수 조회 </li></h4>
+      <p>게시글 조회 시 해당 게시글의 댓글 개수까지 함께 출력하기</p>
+
+      <ol>
+        <li>serializers 수정</li>
+        <img src="https://user-images.githubusercontent.com/110621233/232370685-87a79125-95b2-43f1-9bea-f2270cd5e87e.png" alt="역참조_댓글개수출력_postman">
+        <li>postman 결과</li>
+        <img src="https://user-images.githubusercontent.com/110621233/232370687-645b1ab7-1ae8-44bb-994e-0e1e94a2e823.png" alt="역참조_댓글개수출력_serializers">
+      </ol>
+
+    </ul>
+
+    <h2>Django shortcuts functions</h2>
+    <ul>
+      <li>get_object_or_404()</li>
+      <ul>
+        <li>모델 manager objects에서 get()을 호출하지만, <br>
+          해당 개체가 없을 땐 기존 DoesNotExist예외 대신 Http404를 raise한다.</li>
+      </ul>
+      <li>get_list_or_404()</li>
+      <ul>
+        <li>모델 manager objects에서 filter()의 결과를 반환하고, 해당 객체 목록이 없을 땐 Http404를 raise한다.</li>
+      </ul>
+      <li>서버가 적절한 예외 처리를하고 클라이언트에게 올바른 에러를 전달하는 것은 중요한 요소이다.</li>
+    </ul>
+    <img src="https://user-images.githubusercontent.com/110621233/231062359-1b7d42fd-45a2-4605-8034-c342d05d5a9d.png"></img>
+</body>
+</html>
