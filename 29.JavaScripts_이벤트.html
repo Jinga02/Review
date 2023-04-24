@@ -1,0 +1,81 @@
+<img src="https://user-images.githubusercontent.com/110621233/231062359-1b7d42fd-45a2-4605-8034-c342d05d5a9d.png"></img>
+><!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+    <h2>Event</h2>
+      <ul>
+          <li>HTML요소에서 발생하는 모든 상황을 의미한다.</li>
+          <li>사용자가 웹 페이지의 버튼을 클릭한다면 클렉이 대한 이벤트가 발생하고, <br>
+              우리는 이벤트를 통해 클릭이라는 사건에 대한 결과를 받거나, 조작 할 수 있다.</li>
+          <li>Event Object</li>
+          <ul>
+            <li>네트워크 활동이나 사용자와의 상호작용 같은 사건의 발생을 알리기 위한 객체이다.</li>
+            <li>이벤트가 발생했을 때 생성되는 객체이다.</li>
+            <li>DOM 요소는 Event를 받고 받은 Event를 처리 할 수 있다.</li>
+            <li>처리는 주로 addEventListener()메서드를 사용한다.</li>
+          </ul>
+          <li>Event handler</li>
+          <ul>
+            <li>웹 페이지에서 발생하는 Event에 대해 반응하여 동작하는 함수를 지칭한다.</li>
+            <li>이벤트가 발생했을때 호출되며, Event객체를 매개변수로 전달받는다.</li>
+            <li>예시</li>
+            <ul>
+                <li>EventTarget.addEventListener(type, handler function) <br>
+                    EventTarget에 특정Event => type가 발생하면, 무슨 일을 할 지 handler function을 등록</li>
+                <li>type의 예시 : input, click, submit... <a href="https://jenny-daru.tistory.com/17">jeeny-daru type종류</a></li>
+                <li>화살표 함수는 상위 스코프를 지칭하기 때문에 window객체가 바인딩된다. <br>
+                    그렇기때문에 addEventListener의 콜백함수는 function키워드를 사용해야 한다.</li>
+            </ul>
+          </ul>
+      </ul>
+    <h2>Event 실습</h2>
+      <ul>
+          <h3><li>button</li></h3>
+          <ul>
+            <li>버튼을 클릭하면 특정 변수 값 변경하기</li>
+            <img src="https://user-images.githubusercontent.com/110621233/233902482-5d0ddba6-5318-423f-9f76-39f8aed67685.png" alt="button 코드">
+            <img src="https://user-images.githubusercontent.com/110621233/233902481-e7571f3e-32c5-40ac-9328-c2529759fd52.png" alt="button 결과">
+          </ul>
+          <h3><li>input</li></h3>
+          <ul>
+            <li>input에 값을 입력하면 입력된 값을 화면에 출력하기</li>
+            <img src="https://user-images.githubusercontent.com/110621233/233902472-06eacf8c-579e-47da-88e1-7cf16405639c.png" alt="input 코드">
+            <img src="https://user-images.githubusercontent.com/110621233/233902469-41acef84-5773-403b-94d1-39395041e345.png" alt="input 결과">
+          </ul>
+          <h3><li>Event 이벤트 취소</li></h3>
+          <ul>
+            <li>웹 페이지 내용을 복사하지 못하도록 하기</li>
+            <img src="https://user-images.githubusercontent.com/110621233/233902476-e55002f2-17f5-4536-9aa1-0809207c2ec6.png" alt="이벤트 취소 코드">
+            <img src="https://user-images.githubusercontent.com/110621233/233902474-6c90133a-8ae4-43a7-875d-1252eea1f3f7.png" alt="이벤트 취소 결과">
+          </ul>
+          <h3><li>로또 번호 만들어 보기</li></h3>
+          <li>lodash 활용 <a href="https://velog.io/@kysung95/%EC%A7%A4%EB%A7%89%EA%B8%80-lodash-%EC%95%8C%EA%B3%A0-%EC%93%B0%EC%9E%90">yongseong - lodash</a></li>
+          <img src="https://user-images.githubusercontent.com/110621233/233902473-87865245-5c40-45c4-a275-2973aafb1c11.png" alt="로또">
+        <img src="https://user-images.githubusercontent.com/110621233/233902959-906a034e-4f1b-49b6-aff6-6822b5840dd4.png"></img>
+                </ul>
+    <h2>Event 전파</h2>
+      <ul>
+          <li>DOM요소에서 발생한 이벤트가 상위 노드에서 하위 노드, 혹은 하위 노드에서 상위 노드로 전파되는 현상을 뜻한다.</li>
+          <li>이벤트가 발생하면 그 발생한 요소에 그치지 않고 어딘가로 그 이벤트가 흘러서 그 요소에도 이벤트가 발생한다는 것이다.</li>
+          <h3><li>예시</li></h3>
+          <ul>
+            <li>아래 코드처럼 영역 표시</li>
+            <img src="https://user-images.githubusercontent.com/110621233/233902480-7e22f607-51b4-4897-8c11-33344b749693.png" alt="전파 코드 body">
+            <li>SPAN영역 클릭 시 상위 영역인 P영역, DIV영역도 클릭 이벤트가 전파된다.</li>
+            <img src="https://user-images.githubusercontent.com/110621233/233902477-7492e37c-d856-4366-94f9-09a7cd089542.png" alt="전파1">
+            <li>event.stopPropagation(); - 상위 이벤트로의 전파를 중단한다. <br>
+                event.stopImmediatePropagation(); - 같은 레벨로의 전파를 중단한다.</li>
+                event.preventDefault() - 현재 Event의 기본 동작을 중단한다.
+            <img src="https://user-images.githubusercontent.com/110621233/233902478-7b1bfb81-816e-4089-a726-dfac4aa9a293.png" alt="전파2"> 
+          </ul>
+      </ul>     
+    
+>    <h3>참고</h3>
+    JavaScripts 이벤트<a href="https://jhyonhyon.tistory.com/23">long4jae</a>
+  
+  <img src="https://user-images.githubusercontent.com/110621233/231062359-1b7d42fd-45a2-4605-8034-c342d05d5a9d.png"></img>
+
+</body>
+</html>
