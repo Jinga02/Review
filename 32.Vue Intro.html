@@ -1,0 +1,120 @@
+<img src="https://user-images.githubusercontent.com/110621233/231062359-1b7d42fd-45a2-4605-8034-c342d05d5a9d.png"></img>
+> <!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+    <h2>Front-end 개발이란?</h2>
+      <ul>
+          <h3><li>Web App</li></h3>
+          <ul>
+            <li>웹 브라우저에서 실행되는 어플리케이션 소프트웨어</li>
+            <li>클라이언트는 웹 브라우저를 통해 Web app에 접속하고, 서버는 Web app의 기능을 처리하고 결과를 클라이언트에 전송한.</li>
+            <li>웹 페이지가 디바이스에 맞는 적절한 UX/UI로 표현되는 형태</li>
+            <li>온라인 쇼핑몰, 은행 웹 사이트, 이메일 클라이언트, 소셜 미디어 등 모두 Web App이다.</li>
+          </ul>
+          <h3><li>SPA(Single Page Application)</li></h3>
+          <ul>
+            <li>전통적인 웹 애플리케이션과는 다르게, 한 페이지에서 모든 컨텐츠를 렌더링하는 웹 애플리케이션이다.</li>
+            <li>이전에는 사용자의 요청에 대해 적절한 페이지 별 template를 반환했다면, SPA는 서버에서 최초 1장의 HTML만 전달받아 모든 요청에 대응하는 방식이다.</li>
+            <li>SPA는 Ajax와 같은 비동기 기술을 사용하여 필요한 데이터만 서버로부터 받아와서 동적으로 화면을 갱신한다.</li>
+            <li>예시로 네이버지도는 화면이 바뀌고 위치를 이동해도 주소가 바뀌거나 새로고침이 일어나지 않는다.</li>
+          </ul>
+          <h3><li>SSR(Server Side Rendering)</li></h3>
+          <ul>
+            <li>SSR은 서버 측에서 웹 페이지를 생성하고, 클라이언트에게 전달하는 기술</li>
+            <li>클라이언트 측에서 JavaScript를 사용하여 렌더링하는 SPA와는 달리, 서버에서 HTML 코드를 생성하여 전송한다.</li>
+            <li>전달 받은 새 문서를 보여주기 위해 브라우저는 새로고침을 진행한다.</li>
+            <li>SSR은 초기 로딩 속도와 SEO 최적화에 강점이 있으며,CSR에 비해 보안에 우수하다.</li>
+            <img src="https://velog.velcdn.com/images%2Fvagabondms%2Fpost%2F8c4c7988-c35d-4722-8e78-4c4f4bbb54a5%2Fimage.png" alt="SSR과정">
+          </ul>
+          <h3><li>CSR(Client Side Rendering)</li></h3>
+          <ul>
+            <li>클라이언트 측에서 JavaScript를 사용하여 동적으로 웹 페이지를 생성하는 기술</li>
+            <li>최초 한 장의 HTML을 받아오는 것은 SSR과 동일하지만, Server로부터 최초로 받아오는 문서는 빈 HTML문서이다.</li>
+            <li>클라이언트 측에서 서버로부터 데이터를 요청하고, 받은 데이터를 가지고 클라이언트 측에서 렌더링</li>
+            <li>빠른 반응성과 사용자 경험에 강점이 있으며, 사용자가 서버와의 상호작용이 많은 웹 애플리케이션에 적합하다.</li>
+            <img src="https://velog.velcdn.com/images%2Fvagabondms%2Fpost%2F0289f96e-c34d-48a9-b942-eb9376ab43af%2Fimage.png" alt="CSR과정">
+          </ul>
+      </ul>
+
+   ><h2>Vue</h2>
+      <ul>
+          <h3><li>Vue란</li></h3>
+          <ul>
+            <li>웹 인터페이스를 개발하기 위한 프로그레시브 프레임워크이다.</li>
+            <li>Vue 특징</li>
+            <ol>
+                <li>선택적 사용이 가능한 기능</li>
+                <ul>
+                    <li>필요한 기능만 선택하여 사용할 수 있어서 가볍고 빠르게 개발이 가능하다.</li>
+                </ul>
+                <li>MVVM 아키텍처 패턴</li>
+                <ul>
+                    <li>Model-View-ViewModel의 약자로, 데이터와 UI를 분리하여 관리하는 소프트웨어 디자인 패턴이다.</li>
+                    <li>Model - 애플리케이션의 데이터를 정의하고 관리한다.</li>
+                    <li>View - 사용자 인터페이스를 표시한다.</li>
+                    <li>ViewModel - View와 Model 사이의 인터페이스 역할을 수행하며, View를 위한 데이터를 제공하고, View의 이벤트를 처리한다.</li>
+                    <img src="https://user-images.githubusercontent.com/110621233/234741524-97f3378f-e969-48cc-b42d-64874a3051e9.PNG" alt="MVVM">
+                </ul>
+                <li>가상 DOM(Virtual DOM)</li>
+                <ul>
+                    <li>성능을 최적화하며, 변화가 있는 부분만 업데이트하여 불필요한 리렌더링을 줄일 수 있다.</li>
+                </ul>
+                <li>컴포넌트 기반 아키텍처</li>
+                <ul>
+                    <li>재사용성이 높은 컴포넌트 기반 아키텍처를 지원한다.</li>
+                </ul>
+            </ol>
+          </ul>
+          <h3><li>코드 실습</li></h3>
+          <ul>
+            <li>Vue의 기본 구조</li>
+            <img src="https://user-images.githubusercontent.com/110621233/234741533-5cec9691-856c-48c1-8d71-9d374871c47d.PNG" alt="Vue 기본코드">
+            <li>Vue 기본 코드 적용</li>
+            <img src="https://user-images.githubusercontent.com/110621233/234741529-cb75b556-1279-42d5-a299-93b6cd5412b4.PNG" alt="Vue 기본코드 적용">
+            <li>Vue 기본 코드 결과</li>
+            <img src="https://user-images.githubusercontent.com/110621233/234741527-f3b6b26f-fabe-424b-bff6-e4b6c806d75e.PNG" alt="Vue 기본코드 결과">
+          </ul>
+          <h3><ul>코드 설명</ul></h3>
+          <ul>
+            <h4><li>el(element)</li></h4>
+            <ul>
+                <li>Vue Instance와 DOM을 mount(연결)하는 옵션</li>
+                <li>el 속성을 통해 Vue 인스턴스가 Vue 어플리케이션의 특정 DOM 요소에 바인딩되어 렌더링될 수 있다.</li>
+                <li>Vue instance와 연결되지 않은 DOM외부는 Vue의 영향을 받지 않는다.</li>
+                <li>예를 들어, el: '#app'로 설정하면 Vue 인스턴스가 id가 "app"인 요소에 마운트된다.</li>
+                <img src="https://user-images.githubusercontent.com/110621233/234741515-8b515228-0031-499f-89fe-5115b5932fdc.PNG" alt="el 예시">
+                <img src="https://user-images.githubusercontent.com/110621233/234745257-daab7c9f-47fb-4031-9d8e-eff6b869aa1b.PNG" alt="el 예시">
+            </ul>
+            <h4><li>data</li></h4>
+            <ul>
+                <li>Vue 인스턴스에서 사용할 데이터를 정의하는 속성</li>
+                <li>데이터 객체는 반드시 기본 객체 {}(object) 여야 한다.</li>
+                <li>data 객체의 속성은 Vue 템플릿에서 사용될 수 있으며, 값이 변경될 경우 자동으로 뷰를 업데이트한다.</li>
+                <li>data 객체는 Vue 인스턴스가 생성될 때 초기화되며, this.$data를 통해 Vue 인스턴스에서 데이터에 접근할 수 있다.</li>
+                <li>예를 들어, data: { message: 'Hello, Vue!' }로 설정하면 Vue 인스턴스에서 message 데이터를 사용할 수 있다.</li>
+                <img src="https://user-images.githubusercontent.com/110621233/234741510-ded311d9-492a-402e-8c35-233a220126cf.PNG" alt="data 예시">
+                <img src="https://user-images.githubusercontent.com/110621233/234745252-3669b5c3-8406-4420-811f-f43e2587c004.PNG" alt="data 예시">
+                <img src="https://user-images.githubusercontent.com/110621233/234741514-f2623462-f3cd-4330-a7fb-b624fb27d84f.PNG" alt="data 예시 결과">
+            </ul>
+            <h4><li>methods</li></h4>
+            <ul>
+                <li>Vue 인스턴스에서 사용할 메소드를 정의하는 속성</li>
+                <li>methods 객체에 정의된 메소드는 Vue 템플릿에서 이벤트 핸들러 등으로 사용될 수 있으며, Vue 인스턴스의 데이터를 변경하거나, 이벤트를 발생시키는 등의 작업을 수행할 수 있다.</li>
+                <li> methods 객체의 각 속성은 메소드 이름과 메소드 본체를 가지며, 메소드 본체에서 this 키워드를 통해 Vue 인스턴스의 데이터와 다른 메소드에 접근할 수 있다.</li>
+                <li> 예를 들어, methods: { greet: function() { alert('Hello, Vue!'); } }로 설정하면 Vue 인스턴스에서 greet 메소드를 사용할 수 있다.</li>
+                <img src="https://user-images.githubusercontent.com/110621233/234741522-3cffdeb2-7601-47c8-a8e3-de63dd4489b9.PNG" alt="methods 예시">
+                <img src="https://user-images.githubusercontent.com/110621233/234741520-237c042a-9927-495a-a5cd-12392f4fd9db.PNG" alt="methods 결과">
+            </ul>
+          </ul>
+      </ul>
+
+
+   ><h3>참고</h3>
+    <a href="https://velog.io/@vagabondms/%EA%B8%B0%EC%88%A0-%EC%8A%A4%ED%84%B0%EB%94%94-SSR%EA%B3%BC-CSR%EC%9D%98-%EC%B0%A8%EC%9D%B4">SSR과 CSR의 차이 - vagabondms</a>
+
+   <img src="https://user-images.githubusercontent.com/110621233/231062359-1b7d42fd-45a2-4605-8034-c342d05d5a9d.png"></img>
+
+</body>
+</html>
