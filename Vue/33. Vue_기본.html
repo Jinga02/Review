@@ -1,0 +1,158 @@
+<img src="https://user-images.githubusercontent.com/110621233/231062359-1b7d42fd-45a2-4605-8034-c342d05d5a9d.png"></img>
+><!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+    <h2>Basic of Syntax</h2>
+      <ul>
+          <h3><li>Text Interpolation</li></h3>
+          <ul>
+          <li>가장 기본적인 바인딩(연결)방법이다.</li>
+          <li>중괄호{}로 표기한다.</li>
+          <li>DTL과 동일한 형태로 작성한다.</li>
+          <li>Text interpolation방법은 모두 일반 텍스트로 표현한다.</li>
+          </ul>
+          <h3><li>RAW HTML</li></h3>
+          <ul>
+            <li>Vue 컴포넌트에서 HTML 코드를 문자열 형태로 작성할 때 사용하는 방법이다.</li>
+            <li>v-html directive을 사용하여 data와 바인딩한다.</li>
+            <li>directive-HTML 기반 template syntax이다.</li>
+            <li>HTML의 기본 속성이 아닌 Vue가 제공하는 특수 속성의 값으로 data를 작성한다.</li>
+          </ul>
+          <h3>JavaScript형식</h3>
+          <ul>
+            <li>템플릿 문법을 사용하여 HTML 코드와 JavaScript 코드를 함께 작성할 수 있도록 지원한다.</li>
+            <li>데이터를 렌더링하고, 이벤트 처리 및 조건부 렌더링 등 다양한 기능을 구현할 수 있다.</li>
+            <li>중괄호({{ }}) 안에 JavaScript 표현식을 작성하여 데이터를 출력할 수 있다.</li>
+          </ul>
+          <img src="https://user-images.githubusercontent.com/110621233/235416481-0e02676e-4d65-4866-bbc9-054800a83958.jpg" alt="Basic of Syntax body">
+          <img src="https://user-images.githubusercontent.com/110621233/235416482-4905b93d-a59b-41ee-8c7b-65a83fdefe32.jpg" alt="Basic of Syntax script">
+          <img src="https://user-images.githubusercontent.com/110621233/235416483-282cd38a-6510-4131-be56-2849e1d2aed5.jpg" alt="Basic of Syntax 결과">
+
+      </ul>
+
+    <h2>Directives</h2>
+      <ul>
+          <li>HTML요소의 동적인 동작을 구현할 수 있도록 지원한다.</li>
+          <li>v-접두사를 사용하여 HTML태그에 추가되며, Vue.js 애플리케이션의 데이터와 연결되어 사용한다.</li>
+          <li>Directive의 역할은 표현식의 값이 변경 될 때 반응적으로 DOM에 적용하는 것이다.</li>
+          <ol>
+            <h3><li>v-text</li></h3>
+            <ul>
+                <li>Template Interpolation과 함께 가장 기본적인 바인딩 방법이다.</li>
+                <li>{{}}와 동일한 역할을 한다.( 정확히 동일한 역할은 아님)</li>
+            </ul>
+            <h3><li>v-html</li></h3>
+            <ul>
+                <li>HTML 코드를 렌더링할 때 사용되는 디렉티브이다.</li>
+                <li> v-html 디렉티브를 사용하면 Vue.js 데이터 객체에 저장된 문자열을 HTML 요소로 렌더링할 수 있다.</li>
+                <li><b>단, 사용자가 입력하거나 제공하는 컨텐츠에는 절대 사용 금지! (XSS공격 관련)</b></li>
+            </ul>
+            <img src="https://user-images.githubusercontent.com/110621233/235416513-99db550a-c44c-48fb-b50c-8dd464444745.jpg" alt="v-text_v-html_body">
+            <img src="https://user-images.githubusercontent.com/110621233/235416517-a60e3820-3dbd-4d19-a83b-e0d7380ea407.jpg" alt="v-text_v-html_script">
+            <img src="https://user-images.githubusercontent.com/110621233/235416472-31619550-a0c1-4d6c-9085-cdd81bd7d287.jpg" alt="v-text_v-html_결과">
+            <h3><li>v-show와 v-if</li></h3>
+            <ul>
+                <li>두 디렉티브 모두 조건부 렌더링 디렉티브이다.</li>
+                <li>HTML 요소를 동적으로 보여주거나 숨길 수 있도록 지원한다.</li>
+                <h4><li>차이점</li></h4>
+                <ul>
+                    <li>초기 렌더링 비용</li>
+                    <ul>
+                        <li>v-show는 표현식 결과와 관계없이 초기 렌더링에서 HTML 요소가 항상 렌더링되어야 하기 때문에 v-if보다 비용이 더 높다.</li>
+                        <li>v-if는 표현식 결과가 false인 경우 렌더링조차 되지 않으므로 초기 렌더링 비용은 v-show보다 낮을 수 있다.</li>
+                    </ul>
+                    <li>업데이트 비용</li>
+                    <ul>
+                        <li>v-show는 display속성 변경으로 표현 여부를 판단하므로 렌더링 후 toggle비용이 v-if보다 적다.</li>
+                        <li>v-if는 표현식 값이 자주 변경되는 경우 잦은 재렌더링으로 업데이트 비용이 v-show보다 높다</li>
+                    </ul>
+                </ul>
+                <li>v-show는 HTML요소를 자주 숨겨야하는 경우에 적합하며, v-if는 HTML요소를 자주 숨기지 않는 경우에 적합하다.</li>
+            </ul>
+            <img src="https://user-images.githubusercontent.com/110621233/235416508-ffdbf661-003c-49fd-a8c9-fdef446f658f.jpg" alt="v-show와v-if body">
+            <img src="https://user-images.githubusercontent.com/110621233/235416510-8f3ab052-3207-410c-8667-f7ccb010f7c4.jpg" alt="v-show와v-if script">
+            <h3><li>v-for</li></h3>
+            <ul>
+                <li>데이터 객체의 배열 요소를 순회하며 HTML 요소를 반복적으로 렌더링할 수 있다.</li>
+                <li>index를 함께 출력하고자 한다면(char,index)형태로 사용 가능하다.</li>
+                <li>v-for 사용시 반드시 key속성을 각 요소에 작성해야 한다.</li>
+                <div style="display: inline;">
+                    <img src="https://user-images.githubusercontent.com/110621233/235416499-0d949997-0609-4af7-9aa1-fe494e940fac.jpg" alt="v-for body">
+                    <img src="https://user-images.githubusercontent.com/110621233/235416500-225f582e-8de1-45a1-b68c-a40f20d5fea5.jpg" alt="v-for script">
+                </div>
+            </ul>
+            <h3><li>v-on</li></h3>
+            <ul>
+                <li> v-on 디렉티브를 사용하면 HTML 요소에서 발생하는 이벤트를 Vue.js 메서드와 연결할 수 있다.</li>
+                <li>addEventListener의 첫 번째 인자와 동일한 값들로 구성된다.</li>
+                <li>이벤트 핸들러 메서드를 인라인으로 작성할 수 있다.</li>
+                <li>@을 활용한 축약 문법 작성이 가능하다.</li>
+                <img src="https://user-images.githubusercontent.com/110621233/235416506-5cae4872-a78a-42d5-b820-68754448b9e3.jpg" alt="v-on body">
+                <img src="https://user-images.githubusercontent.com/110621233/235416507-e80a310f-b758-41b6-8e17-db78212a4e82.jpg" alt="v-on script">
+            </ul>
+            <h3><li>v-bind</li></h3>
+            <ul>
+                <li> HTML 요소의 속성 값을 Vue.js 데이터 객체의 값과 바인딩할 수 있다.</li>
+                <li> HTML 요소의 class나 style 속성을 바인딩하는 데에도 사용된다.</li>
+                <img src="https://user-images.githubusercontent.com/110621233/235416497-c8baa04f-a1da-4947-aaf8-4e783b0e6a86.jpg" alt="v-bind_body">
+                <img src="https://user-images.githubusercontent.com/110621233/235416498-7e0dca68-b729-4c94-af2c-0b8891b48a7e.jpg" alt="v-bind_script">
+            </ul>
+            <h3><li>v-model</li></h3>
+            <ul>
+                <li> 양방향 데이터 바인딩 디렉티브이다.</li>
+                <li> v-model 디렉티브를 사용하면 HTML 입력 요소의 값과 Vue.js 데이터 객체의 값을 동기화할 수 있다.</li>
+                <img src="https://user-images.githubusercontent.com/110621233/235416501-5cd7252a-6949-4bac-9177-8895b4d0999e.jpg" alt="v-model_body">
+                <img src="https://user-images.githubusercontent.com/110621233/235416503-c3f6fe66-ae5b-4d9f-8713-57c34adeda17.jpg" alt="v-model_srcipte">
+                <img src="https://user-images.githubusercontent.com/110621233/235416505-b458745b-b609-48a9-8cf0-5014fad5ddf9.jpg" alt="v-model_결과">
+            </ul>
+          </ol>
+          
+      </ul>
+
+    <h2>Vue advanced</h2>
+
+      <ul>
+          <h3><li>methods</li></h3>
+          <ul>
+            <li>호출 될 떄마다 함수를 실행하며, 같은 결과여도 매번 새롭게 계산한다.</li>
+            <li>수동으로 호출해야 하며, 응답성과 캐싱을 제공하지 않는다.</li>
+          </ul>
+          <h3><li>computed</li></h3>
+          <ul>
+            <li>함수의 종속 대상의 변화에 따라 계산여부가 결정된다.</li>
+            <li>종속 대상이 변하지 않으면 항상 저장(캐싱)된 값을 반환한다.</li>
+            <li>자동으로 응답성과 캐싱을 제공한다.</li>
+            <li>computed는 일반적으로 methods보다 더욱 간단하고 가독성이 높은 코드를 작성할 수 있다.</li>
+          </ul>
+          <img src="https://user-images.githubusercontent.com/110621233/235416484-130aee5f-e263-474c-9290-5f965d888b0a.jpg" alt="computed_body">
+          <img src="https://user-images.githubusercontent.com/110621233/235416486-870bdcc8-36e4-4d3c-a9d2-b1a00cc63272.jpg" alt="computed_script">
+          <img src="https://user-images.githubusercontent.com/110621233/235416487-017bc69c-eccf-4850-9133-3f3eb0d54e09.jpg" alt="computet_결과">
+          <h3><li>watch</li></h3>
+          <ul>
+            <li>데이터 객체의 변화를 감시(watch)하고, 변화가 발생할 때마다 콜백 함수를 실행하는 방법이다.</li>
+            <li>데이터 객체의 속성 값이 변경되는 것을 감지하여 필요한 동작을 수행할 수 있도록 해준다.</li>
+            <ul>
+                <li>데이터 객체의 속성 값이 변경될 때마다 다른 동작을 수행해야 하는 경우</li>            
+                <li>계산된 속성(computed)으로 수행할 수 없는 비동기 작업이 필요한 경우</li>                
+                <li>데이터 객체의 여러 속성을 감시하여 종속성이 복잡한 계산을 수행해야 하는 경우</li>
+            </ul>
+            <img src="https://user-images.githubusercontent.com/110621233/235416475-1997dd93-130f-436b-99e5-467c884ec690.jpg" alt="watch_body">
+            <img src="https://user-images.githubusercontent.com/110621233/235416477-b26e6ad6-6874-4545-ba46-3735ba579c38.jpg" alt="watch_script">
+            <img src="https://user-images.githubusercontent.com/110621233/235416479-1dffecc5-e677-45e3-a262-33ea8d1f080c.jpg" alt="wathc_결과">
+          </ul>
+          <h3><li>filters</li></h3>
+          <ul>
+            <li>템플릿에서 데이터를 출력할 때, 데이터를 가공하거나 포맷팅하기 위한 방법 중 하나이다.</li>
+            <li>데이터를 출력하기 전에 필요한 처리를 수행하여, 데이터의 가독성을 높이거나 원하는 형태로 변환할 수 있다.</li>
+            <img src="https://user-images.githubusercontent.com/110621233/235416494-bd201377-4e97-462d-9e43-4f4c9b41abeb.jpg" alt="filters_body">
+            <img src="https://user-images.githubusercontent.com/110621233/235416489-95f5007f-b606-46c2-aea2-e6919cf7b122.jpg" alt="filters_script">
+            <img src="https://user-images.githubusercontent.com/110621233/235416493-f880904d-a2fc-4dfe-803f-e952ee8282f1.jpg" alt="filters_결과">
+          </ul>
+      </ul>
+
+    <h3>참고</h3>
+    <a href="https://ko.vuejs.org/style-guide/">Vue Style Guide</a>
+
+<img src="https://user-images.githubusercontent.com/110621233/231062359-1b7d42fd-45a2-4605-8034-c342d05d5a9d.png"></img>
