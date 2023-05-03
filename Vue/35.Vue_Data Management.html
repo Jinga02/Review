@@ -1,0 +1,133 @@
+<img src="https://user-images.githubusercontent.com/110621233/231062359-1b7d42fd-45a2-4605-8034-c342d05d5a9d.png"></img>
+><!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+    <h2>Data in components</h2>
+      <ul>
+          <li>동적 웹페이지를 만들기 위해 웹페이지에서 데이터를 다뤄야 한다.</li>
+          <li>한 페이지 내에서 같은 데이터를 공유 해야 하지만 페이지들은 component로 구분되어 있다.</li>
+          <li>필요한 컴포넌트들 끼리 데이터를 주고 받으면 데이터의 흐름을 파악하기 힘들고 개발 속도가 저하되며 유지보수 난이도가 증가한다.</li>
+          <li>컴포넌트는 부모-자식 관계를 가지고 있으므로, 부모-자식 관계만 데이터를 주고 받게하면 데이터의 흐름을 파악하기 용이하고 유지 보수하기 쉬워진다.</li>
+          <li>부모 => 자식으로의 데이터 흐름 : pass props방식 / 자식 => 부모로의 데이터 흐름 : emit event 방식</li>
+          <b><li>모든 props는 부모에서 자식으로 단반향 바인딩을 형성한다.</li></b>
+          <b><li>하위 컴포넌트가 실수로 상위 컴포넌트 상태를 변경하여 앱의 데이터 흐름을 이해하기 힘들게 만드는 것을 방지하기 위함이다.</li></b>
+          <img src="https://user-images.githubusercontent.com/110621233/235823615-46e4ecaf-910b-4043-9d25-a5dac3bcf687.jpg" alt="부모 자식 관계">
+      </ul>
+    <h2>Pass Props</h2>
+      <ul>
+          <li>요소의 속성(property)을 사용하여 데이터를 전달한다.</li>
+          <li>props는 부모(상위) 컴포넌트의 정보를 전달하기 위한 사용자 지정 특성이다.</li>
+          <li>부모에서 넘겨주는 props 는 kebab-case(HTML속성명은 대소문자를 구분하지 않기 때문에)</li>
+          <li>자식에서 받는 props는 camelCase</li>
+          <li>부모 템플릿(html)에서 kebab-case로 넘긴 변수를 자식의 스크립트(vue)에서 자동으로 camelCase로 변환하여 인식한다.</li>
+          <h3><li>props in HelloWorld 실습</li></h3>
+          <ol>
+            <li>부모.vue 작성</li>
+            <img src="https://user-images.githubusercontent.com/110621233/235823612-e660ab47-3f5a-423d-b7f4-eb05f7a4efa1.jpg" alt="pass_props_MyCom...">
+            <li>자식.vue 작성</li>
+            <img src="" alt="pass_props_Mychild">
+            <li>결과 확인</li>
+            <img src="https://user-images.githubusercontent.com/110621233/235823614-6a7f4b62-ffef-4b84-8543-6d5a33291504.jpg" alt="pass_props_결과">
+          </ol>
+      </ul>
+    <h2>Dynamic props</h2>
+      <ul>
+        <li>변수를 props로 전달할 수 있으며, v-bind directive를 사용해 데이터를 동적으로 바인딩한다.</li>
+        <li>부모 컴포넌트의 데이터가 업데이트 되면 자식 컴포넌트로 전달되는 데이터 또한 업데이트 된다.</li>
+        <li>컴포넌트의 data는 함수여야 한다 : 각 vue 인스턴스는 같은 data객체를 공유하므로 새로운 data객체를 반환(return)하여 사용해야 한다.</li>
+        <h3><li>Dynamic props 실습</li></h3>
+        <ol>
+          <li>부모.vue 작성</li>
+          <img src="https://user-images.githubusercontent.com/110621233/235823622-8baedc22-1c35-405b-88f5-37dd03d64f9e.jpg" alt="dynamic_props_MyCom..">
+          <li>자식.vue 작성</li>
+          <img src="https://user-images.githubusercontent.com/110621233/235823620-e6fdc1d7-c6de-4a57-97d4-b95d94db12e0.jpg" alt="dynamic_props_MyChild">
+          <li>결과 확인</li>
+          <img src="https://user-images.githubusercontent.com/110621233/235823624-10d1ae0c-78be-4455-82db-4c34ee8cf017.jpg" alt="dynamic_props_결과">
+        </ol>
+      </ul>
+
+    <h2>Emit Event</h2>
+      <ul>
+          <li>이벤트를 발생시키면 데이터를 전달하는 방법으로 $emit 메서드를 통해 이벤트를 발생시킨다.</li>
+          <li>emit 메서드는 자식 컴포넌트에서 이벤트를 발생시키고, 부모 컴포넌트에서 해당 이벤트를 수신할 수 있도록 한다.</li>
+          <ul>
+            <li>데이터를 이벤트 리스너의 콜백함수의 인자로 전달한다.</li>
+            <li>상위 컴포넌트는 해당 이벤트를 통해 데이터를 받는다.</li>
+          </ul>
+          <li>Emit Event 실습</li>
+          <ol>
+            <li></li>
+            <img src="https://user-images.githubusercontent.com/110621233/235824065-849e7cd7-5625-4aee-b777-ff259c3bcfe6.jpg" alt="emit_event_MyCom...">
+            <li></li>
+            <img src="https://user-images.githubusercontent.com/110621233/235824064-85f1f545-3599-4b5b-88f8-c388b610518b.jpg" alt="emit_event_MyChild">
+            <li></li>
+            <img src="https://user-images.githubusercontent.com/110621233/235824061-5f2c86d4-17fb-4745-9b73-085d1b8054f9.jpg" alt="emit_event_결과">
+          </ol>
+          <h3><li>Emit with Data</li></h3>
+          <ol>
+            <li>자식 컴포넌트에 있는 keyup.enter 이벤트를 청취하여 연결된 핸들러 함수(ChildInput) 호출</li>
+            <li>호출된 함수에서 $emit을 통해 부모 컴포넌트에 이벤트(child-input)를 발생</li>
+            <ul>
+              <li>이벤트에 v-model로 바인딩 된 입력받은 데이터를 전달</li>
+            </ul>
+            <li>상위 컴포넌트는 자식 컴포넌트의 이벤트(chilt-input)를 청취하여 연결된 핸들러 함수(getDynamicData)호출, 함수의 인자로 전달된 데이터가 포함되어 있다.</li>
+            <li>호출된 함수에서 console.log(`~입력받은 데이터~`) 실행</li>
+          </ol>
+          <ol>
+            <li></li>
+            <img src="https://user-images.githubusercontent.com/110621233/235824302-65d4bd0c-2c0a-4f27-a05e-f8fa84130a9f.jpg" alt="emit_event_data_Mycom...">
+            <li></li>
+            <img src="https://user-images.githubusercontent.com/110621233/235824305-fb5e0f27-410c-4370-b005-4a2647b42b3a.jpg" alt="emit_event_data_MyChild">
+            <li></li>
+            <img src="https://user-images.githubusercontent.com/110621233/235824304-9cc9e311-3549-43fb-bca4-1c351a7b94d5.jpg" alt="emit_event_data_결과">
+          </ol>
+      </ul>
+    
+    <h2>pass props / emit event 컨벤션</h2>
+    <ul>
+      <li>HTML 요소에서 사용할 때는 kebab-case / JavaScript에서 사용할 때는 camelCase</li>
+      <h4><li>props</li></h4>
+      <ul>
+        <li>상위 => 하위 흐름에서 HTML 요소로 내려줄 때 : kebab-case</li>
+        <li>하위에서 받을 때 JavaScript에서 받는다. : camelCase</li>
+      </ul>
+      <h4><li>emit</li></h4>
+      <ul>
+        <li>emit 이벤트를 발생시키면 HTML 요소가 이벤트를 청취한다. : kebab-case</li>
+        <li>메서드, 변수명 등은 JavaScript에서 사용한다. : camelCaseo </li>
+      </ul>
+
+    <h2>Lifecycle Hooks</h2>
+    <ul>
+      <li>각 Vue 인스턴스는 생성과 소멸의 과정 중 단계별 초기화 과정을 거친다.</li>
+      <li>Vue 인스턴스가 생성 된 경우, 인스턴스를 DOM에 마운트하는 경우, 데이터가 변경되어 DOM을 업데이트 하는 등</li>
+      <li>각 단계가 트리거가 되어 특정 로직을 실행 할 수 있는데, 이를 Liftcycle Hooks라고 한다.</li>
+      <h3><li>Vue.js에서 Lifecylce은 크게 생성(craetion), 갱신(update), 파괴(destruction)에 따라 분류된다.</li></h3>
+      <ul>
+        <li>생성(Creation)
+          <ul>
+            <li>beforeCreate: 인스턴스가 생성되고 데이터가 초기화되기 전에 호출된다.</li>
+            <li>created: 인스턴스가 생성되고 데이터가 초기화된 후에 호출된다.</li>
+            <li>beforeMount: 인스턴스가 화면에 마운트되기 전에 호출된다.</li>
+            <li>mounted: 인스턴스가 화면에 마운트된 후에 호출된다.</li>
+          </ul>
+        </li>
+        <li>갱신(Update)
+          <ul>
+            <li>beforeUpdate: 데이터가 변경되고 화면에 다시 렌더링되기 전에 호출된다.</li>
+            <li>updated: 데이터가 변경되고 화면에 다시 렌더링된 후에 호출된다.</li>
+          </ul> 
+        </li>
+        <li>파괴(Destruction)
+          <ul>
+            <li>beforeDestroy: 인스턴스가 파괴되기 전에 호출된다.</li>
+            <li>destroyed: 인스턴스가 파괴된 후에 호출된다.</li>
+          </ul>
+        </li>
+      </ul>
+      <img src="https://user-images.githubusercontent.com/110621233/235823607-2d0a7f3d-8bf1-4ad3-922e-71a59f0a9c63.jpg" alt="Lifecycle Hooks1">
+      <img src="https://user-images.githubusercontent.com/110621233/235823608-824d37d8-f315-49c1-9cee-90cd806ef01c.jpg" alt="Lifecycle Hooks2">
+    </ul>
+    </ul>
