@@ -1,0 +1,107 @@
+<img src="https://user-images.githubusercontent.com/110621233/231062359-1b7d42fd-45a2-4605-8034-c342d05d5a9d.png"></img>
+><!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+    <h2>LocalStorage</h2>
+      <ul>
+          <li>웹 브라우저에서 제공하는 key-value 형태의 데이터 저장소이다.</li>
+          <li>데이터를 저장하면 해당 웹 사이트를 나중에 다시 방문하더라도 이전에 저장한 데이터를 불러와 사용할 수 있다.</li>
+          <li>브라우저가 종료되거나 사용자가 데이터를 삭제하기 전까지 계속 보존된다.</li>
+          <h3><li>Vuex 실습</li></h3>
+          <ul>
+            <li>index.js 작성</li>
+            <img src="https://user-images.githubusercontent.com/110621233/236735567-60c1b106-5d91-4720-ab55-5d588ade152e.PNG" alt="LocalStorage_mutations">
+            <img src="https://user-images.githubusercontent.com/110621233/236735563-cbebcebb-b3e6-4060-ae67-233aef76038c.PNG" alt="LocalStorage_actions">
+            <li>App.vue 작성</li>
+            <img src="https://user-images.githubusercontent.com/110621233/236735564-d66dc44c-5962-442f-b300-a6457681a3a3.PNG" alt="LocalStorage_App">
+          </ul>
+      </ul>
+
+>    <h2>plugins</h2>
+      <ul>
+          <li>Vuex Store에 추가적인 기능을 제공하는 확장 기능이다.</li>
+          <li>일반적으로 state의 변화를 감지해, 어플리케이션의 성능을 최적화하는 목적을 가진다.</li>
+          <li>Vue.js 애플리케이션의 Vuex Store의 인스턴스와 함께 사용되며, Store의 내부 상태를 조작하거나 Store의 액션을 모니터링하고 반응하는 데 사용된다.</li>
+          <h3><li>vuex-persistedstate</li></h3>
+          <ul>
+            <li>Vuex store의 상태를 브라우저 local storage에 저장해 주는 plugin이다.</li>
+            <li>페이지를 새로 고침하거나 브라우저를 종료했다가 다시 열었을 때, 이전 상태를 유지할 수 있도록 해준다.</li>
+            <h3>적용하기</h3>
+            <ul>
+              <li>터미널 설치 npm i vuex-persistedstate</li>
+              <li>index.js 최상단에 import createPersistedState from 'vuex-persistedstate'</li>
+              <li>Vuex.store에 plugins: [
+                    createPersistedState
+                  ],</li>
+              <li>브라우저를 종료 후, 다시 서버를 열었을 때도 vuex의 상태가 유지됨을 확인</li>
+              <img src="https://user-images.githubusercontent.com/110621233/236735561-9aa5c086-741d-41c9-af37-14274deb1b6f.PNG" alt="vuex-persistedstate 작성">
+              <img src="https://user-images.githubusercontent.com/110621233/236735560-567a106f-dc70-4f3d-8354-91b9f1ad3ed0.PNG" alt="vuex-persistedstate 결과">
+            </ul>
+          </ul>
+      </ul>
+
+   > <h2>Vuex Binding Helper</h2>
+      <ul>
+          <li>Vuex store의 state, mutations, actions 등을 간단하게 사용할 수 있도록 만들어진 헬퍼 함수이다.</li>
+          <li>mapState, mapActions와 같은 형식으로 사용되며, import를 통해 받야 와야 한다.</li>
+          <h3>mapState</h3>
+          <ul>
+            <li> Vuex 스토어(store)에서 가져온 state 값을 컴포넌트의 computed 속성(computed property)으로 매핑(mapping)할 수 있도록 도와주는 함수이다.</li>
+            <li>Vuex 스토어의 state 값을 컴포넌트의 computed 속성으로 가져오는 것을 간단하게 해주며, 컴포넌트에서 스토어의 값을 조작하지 않고 읽기만 하는 경우에 주로 사용된다.</li>
+            <h4>코드 작성</h4>
+            <ol>
+              <li>App.vue 작성</li>
+              <img src="https://user-images.githubusercontent.com/110621233/236735551-6390bc7b-3b8c-4122-bf68-ad9fbb1ad822.PNG" alt="mapState 1">
+              <img src="https://user-images.githubusercontent.com/110621233/236735553-20532a08-361d-4ec0-96cc-3e8300ba84d6.PNG" alt="mapState 2">
+              <img src="https://user-images.githubusercontent.com/110621233/236735556-cc971a9e-08b2-4acc-bdc0-2c9c60b9b922.PNG" alt="mapState 결과">
+            </ol>
+          </ul>
+          <h3>mapActions</h3>
+          <ul>
+            <li>actions를 component에서 더 간단하게 사용할 수 있도록 도와준다.</li>
+            <li>actions함수를 직접 호출하는 대신, 컴포넌트 메서드에서 액션을 호출 할 수 있다.</li>
+            <li>component에서 this.$store.dispatch()를 호출하는 대신, 액션 메서드를 직접 호출하여 사용할 수 있다.</li>
+            <h4>코드 작성</h4>
+            <ol>
+              <li>App.vue 배열로</li>
+              <img src="https://user-images.githubusercontent.com/110621233/236735545-58c4bad9-cd27-4fd2-98e8-31c63c31da1c.PNG" alt="mapActions 배열1">
+              <img src="https://user-images.githubusercontent.com/110621233/236735548-b168a286-349e-4c6e-b7f9-3b8d1b52908c.PNG" alt="mapActions 배열2">
+              <li>App.vue 객체로</li>
+              <img src="https://user-images.githubusercontent.com/110621233/236735543-21bffe2d-4164-4ae4-aafe-1d35bf3f9eea.PNG" alt="mapActions 객체">
+            </ol>
+          </ul>
+          <h3>mapGetters</h3>
+          <ul>
+            <li>mapState, mapActions와 동일한 방식으로 작성하고 작동한다.</li>
+            <img src="https://user-images.githubusercontent.com/110621233/236735550-58d502fc-09cb-4725-b7e8-be284c1995e6.PNG" alt="mapGetters">
+          </ul>
+      </ul>
+    <h2>modules</h2>
+    <ul>
+      <li>Vuex store를 여러 파일로 나눠서 관리 할 수 있게 해주는 기능이다.</li>
+      <li>Vuex store와 동일한 구성을 가진 별도의 객체를 정의하여 modules 옵션에 작성한 객체를 추가하여 사용한다.</li>
+      <h3>코드 작성</h3>
+      <ol>
+        <li>store폴더에 modules폴더 생성</li>
+        <li>별도의 js 파일에 객체 정의</li>
+        <img src="https://user-images.githubusercontent.com/110621233/236735557-a049761f-53dc-43ba-8027-8a36a4e49d37.PNG" alt="module1">
+        <li>정의한 js 파일의 객체를 App.vue에 import 및 store의 modules 옵션에 추가</li>
+        <img src="https://user-images.githubusercontent.com/110621233/236735558-65196345-c238-43f7-b8d3-1197278ba4cf.PNG" alt="module2">
+        <li>이후는 지금까지 했던 방식그대로 사용</li>
+      </ol>
+    </ul>
+
+  ><h2>paths</h2>
+    <ul>
+      <li> mapState나 mapGetters 등에서 state를 가져올 때 사용할 속성명들을 배열 형태로 지정하는 것이다.</li>
+      <li>state 객체가 아주 크고 여러 곳에서 사용되는 경우 mapState나 mapGetters를 사용하여 state의 특정 속성들만 컴포넌트 내부에 바인딩할 수 있다.</li>
+      <li>paths를 사용하면 바인딩할 state 속성들을 명시적으로 지정하여 코드 가독성을 높일 수 있다.</li>
+      <li>만약 persistedstate를 사용할 때 원하는 속성만 LocalStorage에 저장하고 싶다면?</li>
+      <img src="https://user-images.githubusercontent.com/110621233/236741605-12c4c725-1f2c-461d-9c35-020ce4327528.PNG" alt="paths_plugin">
+    </ul>
+<img src="https://user-images.githubusercontent.com/110621233/231062359-1b7d42fd-45a2-4605-8034-c342d05d5a9d.png"></img>
+
+</body>
+</html>
