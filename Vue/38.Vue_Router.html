@@ -1,0 +1,198 @@
+<img src="https://user-images.githubusercontent.com/110621233/231062359-1b7d42fd-45a2-4605-8034-c342d05d5a9d.png"></img>
+><!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+    <h2>UX&UI</h2>
+      <ul>
+        <h3>UX</h3>
+        <ul>
+          <li>User Experience의 약어로, 사용자 경험을 뜻한다.</li>
+          <li>제품, 서비스, 앱, 웹사이트 등 사용자와 상호작용하는 모든 디지털 혹은 물리적인 제품이나 서비스의 사용성과 만족도를 높이는 것을 목표로 한다.</li>
+          <li>UX 디자인은 사용자가 제품이나 서비스를 이용하는 과정에서 불편한 점이나 불만족스러운 부분을 최소화하고, 사용자가 제품 혹은 서비스를 쉽고 간편하게 이용할 수 있도록 설계하는 것을 중심으로 한다.</li>
+          <h4>예시</h4>
+          <ul>
+            <li>Google : 사용자의 경험을 이해하기 위한 통계 모델을 설계</li>
+            <li>MS : 리서치를 기획하고 사용자에 대한 지표를 정의</li>
+            <li>Meta : 정성적인 방법과 정량적인 방법을 사용해서 사용자 조사를 실시</li>
+          </ul>
+        </ul>
+        <h3>UI</h3>
+        <ul>
+          <li>User Interface의 약자로, 사용자 인터페이스를 의미한다.</li>
+          <li>소프트웨어나 웹사이트 등의 디지털 제품에서 사용자가 프로그램을 조작하거나 정보를 입력하고 출력하는 등의 모든 상호작용을 위한 인터페이스를 말한다.</li>
+          <li>사용자가 제품을 보다 쉽고 빠르게 사용할 수 있도록 설계하는 것이 UI 디자인의 목표이다.</li>
+          <h4>예시</h4>
+          <ul>
+            <li>Google : 다양한 디자인 프로토타이핑 툴을 사용해서 개발 가이드를 제공</li>
+            <li>MS : 시각 디자인을 고려해서 체계적인 디자인 컨셉을 보여준다</li>
+            <li>Meta : 제품을 이해하고 더 나은 UI Flow와 사용자 경험을 디자인</li>
+          </ul>
+        </ul>
+        <h3>Interface</h3>
+        <ul>
+          <li>시스템 내에서 서로 다른 두 개의 대상이 서로 상호 작용할 수 있도록 만들어 주는 연결 부분을 의미한다.</li>
+          <li>즉, 사용자가 기기를 쉽게 동작 시키는데 도움을 주는 시스템이라고 할 수 있다.</li>
+          <li>인터페이스는 기술적인 측면에서만 존재하는 것이 아니라, 디자인, 사용성 등과 같은 다양한 영역에서도 사용된다.</li>
+        </ul>
+      </ul>
+
+   ><h2>Routing</h2>
+      <ul>
+        <h3>Routing</h3>
+        <ul>
+          <li>네트워크에서 경로를 선택하는 프로세스</li>
+          <li>웹 애플리케이션에서 클라이언트 요청을 처리하고, 적절한 응답을 반환하는 과정이다.</li>
+          <li>이를 위해 URI(Uniform Resource Identifier)를 분석하고 해당 URI에 대응하는 컴포넌트 혹은 페이지를 렌더링한다.</li>
+          <li>예시 : /articles/index/에 접근하면 articles의 index에 대한 결과를 보내주는것</li>
+        </ul>
+        <h3>Routing in SSR</h3>
+        <ul>
+          <li>Server가 모든 라우팅을 통제한다.</li>
+          <li>URL로 요청이 들어오면 응답으로 완성된 HTML을 제공 => Django로 보낸 요청의 응답 HTML은 완성본인 상태였다.</li>
+          <li>즉, Routing(URL)에 대한 결정권을 서버가 가진다.</li>
+        </ul>
+        <h3>Routing in SPA / CSR</h3>
+        <ul>
+          <li>서버는 하나의 HTML(index.html)만을 제공한다.</li>
+          <li>이후에 모든 동작은 하나의 HTML 문서 위에서 JavaScript 코드를 활용한다.</li>
+          <ul>
+            <li>DOM을 그리는데 필요한 추가적인 데이터가 있다면 axios와 같은 AJAX요청을 보낼 수 있는 도구를 사용하여 데이터를 가져오고 처리한다</li>
+          </ul>
+          <li>즉, 하나의 URL만 기잘 수 있다.</li>
+        </ul>
+        <h3>Routing를 사용하는 이유</h3>
+        <ul>
+          <li>사용자 경험 개선: Routing을 사용하면 SPA(Single Page Application)을 구현할 수 있으며, 이는 사용자가 페이지를 이동할 때마다 새로운 페이지를 로드하는 것이 아니라 동적으로 컨텐츠를 변경하여 사용자 경험을 향상시킨다.</li>
+          <li>URL 관리: Routing은 URL을 사용하여 사용자가 어떤 페이지에 있는지 알려줍니다. 이를 통해 사용자가 즐겨찾기에 추가하거나 브라우저의 뒤로가기 버튼을 사용하여 이전 페이지로 돌아갈 수 있다.</li>
+          <li>검색 엔진 최적화(SEO): 검색 엔진은 웹사이트의 페이지를 인덱싱하기 위해 URL을 사용합니다. Routing을 사용하면 URL이 정리되고 의미 있는 정보를 전달하므로 검색 엔진에서 웹사이트를 더 잘 인식할 수 있다.</li>
+          <li>유지보수 및 코드 관리: Routing을 사용하면 코드를 모듈화하고 재사용할 수 있습니다. 이를 통해 코드를 더 쉽게 유지보수하고 관리할 수 있다.</li>
+        </ul>        
+      </ul>
+
+   ><h2>Vue Router</h2>
+      <ul>
+        <h3>Vue Router란?</h3>
+        <li>Vue를 위한 공식 라우터 라이브러리이며, 애플리케이션에서 클라이언트 사이드 라우팅을 구현할 수 있도록 지원하며, SPA(Single Page Application)를 개발할 때 많이 사용된다.</li>
+        <li>Vue Router를 사용하면 사용자가 브라우저에서 URL을 변경하거나 링크를 클릭할 때 Vue.js애플리케이션 내에서 컴포넌트를 동적으로 로드하고 표시할 수 있다.</li>
+        <li>Routes에 컴포넌트를 매핑한 후, 어떤 URL에서 렌더링 할지 알려준다.</li>
+        <ul>
+          <li>즉, SPA를 MPA처럼 URL을 이동하면서 사용 가능하다.</li>
+          <li>SPA의 단점 중 하나인 "URL이 변경되지 않는다."를 해결 해 준다.</li>
+        </ul>
+        <h3>Vue Router 설치</h3>
+        <ul>
+          <li>Vuex와 같은 방식으로 설치 및 반영</li>
+          <img src="https://user-images.githubusercontent.com/110621233/237019084-37f81786-471e-4dfd-8280-9de9a8b31520.PNG" alt="router 설치">
+        </ul>
+        <h3>Vue Router 용어 설명</h3>
+        <ul>
+          <h4>History mode</h4>
+          <ul>
+            <li>브라우저의 History API를 활용한 방식으로 새로고침 없이 URL 이동 기록을 남길 수 있다.</li>
+            <li>History mode는 http://localhost:8080/index hash mode는 http://localhost:8080#index</li>
+          </ul>
+          <h4>router-link</h4>
+          <ul>
+            <li>브라우저에서 클릭 이벤트가 발생할 때 새로운 페이지를 로드하는 것이 아니라, Vue Router의 라우팅 시스템을 사용하여 페이지를 업데이트하고 컴포넌트를 렌더링한다.</li>
+            <li>a 태그와 비슷한 기능으로 URL을 이동시킨다.</li>
+            <ul>
+              <li>routes에 등록된 컴포넌트와 매핑된다.</li>
+              <li>히스토리 모드에서 router-link는 클릭 이벤트를 차단하여 a태그와 달리 브라우저가 페이지를 다시 로드 하지 않도록 한다.</li>
+              <li>목표 경로는 'to' 속성으로 지정된다.</li>
+            </ul>
+            <img src="https://user-images.githubusercontent.com/110621233/237019086-5a538875-3a10-4923-b4e8-c5d875a5df38.PNG" alt="router_link">
+          </ul>
+          <h4>router-view</h4>
+          <ul>
+            <li>주어진 URL에 대해 일치하는 컴포넌트를 렌더링 하는 컴포넌트이다.</li>
+            <li>router-link를 클릭하면 routes에 매핑된 컴포넌트를 렌더링한다.</li>
+            <li>Django에서의 block tag와 비슷하다.</li>
+            <ul>
+              <li>App.vue는 base.html 역할</li>
+              <li>router-view는 block 태그로 감싼 부분</li>
+            </ul>
+          </ul>
+          <h4>views/ 와 components/</h4>
+          <ul>
+            <li>views/</li>
+            <ul>
+              <li>routes에 매핑되는 컴포넌트, 즉 <router-view>의 위치에 렌더링 되는 컴포넌트를 모아두는 폴더이다.</li>
+              <li>다른 컴포넌트와 구분하기 위해 View로 끝나도록 만드는 것을 권장한다.</li>
+            </ul>
+            <li>components/</li>
+            <ul>
+              <li>routes에 매핑된 컴포넌트의 하위 컴포넌트를 모아두는 폴더</li>
+            </ul>
+          </ul>
+        </ul>
+      </ul>
+
+>    <h2>Vue Router 실습</h2>
+        <ul>
+          <h3>선언적 방식 네비게이션</h3>
+          <ul>
+            <li>router-link의 'to' 속성으로 주소 전달</li>
+            <li>routes에 등록된 주소와 매핑된 컴포넌트로 이동</li>
+            <li>Named Routes</li>
+            <ul>
+              <li>이름을 가지는 routes로, Django에서 path함수의 name 인자의 활용과 같은 방식이다.</li>
+              <img src="https://user-images.githubusercontent.com/110621233/237019077-885dbe7e-3c3d-4cb9-a177-4f1b2c2b80a1.PNG" alt="named_routes">
+              <img src="https://user-images.githubusercontent.com/110621233/237019081-05623b35-b6cd-41be-b6d4-f7912549b111.PNG" alt="names_routes_v-bind">
+            </ul>
+            <li>동적인 값을 사용하기 때문에 v-bind를 사용해야 정상적으로 작동한다.</li>
+          </ul>
+          <h3>프로그래밍 방식 네비게이션</h3>
+          <ul>
+            <li>Vue 인스턴스 내부에서 라우터 인스턴스에 $router로 접근 할 수 있다.</li>
+            <li>다른 URL로 이동하려면 this.$router.push를 사용한다</li>
+            <ul>
+              <li>history stack에 이동할 URL을 넣는(push)방식</li>
+              <li>history stack에 기록이 남기 때문에 사용자가 브라우저의 뒤로 가기 버튼을 클릭하면 이전 URL로 이동할 수 있다.</li>
+            </ul>
+            <li>URL의 특정 값을 변수처럼 사용해 동적 인자를 전달할 수 있다.</li>
+            <ul>
+              <li>Django에서의 variable routing 처럼 </li>
+            </ul>
+            <img src="https://user-images.githubusercontent.com/110621233/237019096-0bece813-f0e3-4861-b760-dc4277850c0f.png" alt="프로그래밍 방식">
+            <h4>코드 실습</h4>
+            <ul>
+              <li>사용 할 view 파일 생성</li>
+              <img src="https://user-images.githubusercontent.com/110621233/237019093-c4043c5d-2db7-489e-b64f-f6fbca8d98df.png" alt="동적인자전달_view">
+              <li>index.js에 routes 작성</li>
+              <img src="https://user-images.githubusercontent.com/110621233/237019090-5069886b-6deb-4e7f-9e04-ef19312347f0.png" alt="동적인자전달_index">
+              <li>App.vue에서 router-link 사용가능</li>
+              <img src="https://user-images.githubusercontent.com/110621233/237019088-10dcd63a-9fa9-4309-9607-37b589157acd.png" alt="동적인자전달_App">
+              <li>결과 확인</li>
+              <img src="https://user-images.githubusercontent.com/110621233/237019094-8be1c18f-7948-47b5-85be-3fec50cdc019.png" alt="동적인자전달_결과">
+            </ul>
+            <h4>Dynamic Route Matching실습</h4>
+            <ul>
+              <li> Vue Router에서 동적인 경로 매칭을 위한 기능이며, 이를 사용하면 URL의 일부분을 변수로 사용할 수 있다.</li>
+              <li>사용 할 view 작성</li>
+              <img src="https://user-images.githubusercontent.com/110621233/237019059-6bf2ce87-094b-4749-b8cd-aeef5ca0c1bc.png" alt="dynamic_view1">
+              <img src="https://user-images.githubusercontent.com/110621233/237019068-6d383a65-391f-46af-851d-870baf6fa00e.png" alt="dynamic_view2">
+              <li>결과 확인</li>
+              <img src="https://user-images.githubusercontent.com/110621233/237019071-630dce2b-88a7-45f2-ae10-73e07acb55b6.png" alt="dynamic_결과1">
+              <img src="https://user-images.githubusercontent.com/110621233/237019076-f19fbec4-1dee-4129-bbde-801d2318a0dc.png" alt="dynamic_결과2">
+            </ul>
+            <h4>Lazy-loading</h4>
+            <ul>
+              <li>모든 파일을 한 번에 로드하려고 하면 모든 걸 다 읽는 시간이 매우 오래 걸린다.</li>
+              <li>미리 로드를 하지 않고 특정 라우트에 방문 할 때 매핑된 컴포넌트의 코드를 로드하는 방식을 활용할 수 있다.</li>
+              <ul>
+                <li>모든 파일을 한 번에 로드하지 않아도 되기 때문에 최초에 로드하는 시간이 빨라진다.</li>
+                <li>당장 사용하지 않을 컴포넌트는 먼저 로드하지 않는 것이 핵심이다.</li>
+              </ul>
+              <li>참고 <br>
+                <a href="https://sunny921.github.io/posts/vuejs-router-05-lazyloading/">Lazy-Loading이란1</a> <br>
+              <a href="https://ryu-e.tistory.com/54">Lazy-Loading이란2</a></li>
+            </ul>
+          </ul>
+        </ul>
+
+<img src="https://user-images.githubusercontent.com/110621233/231062359-1b7d42fd-45a2-4605-8034-c342d05d5a9d.png"></img>
+
+</body>
+</html>
