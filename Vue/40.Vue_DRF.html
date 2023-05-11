@@ -1,0 +1,198 @@
+<img src="https://user-images.githubusercontent.com/110621233/231062359-1b7d42fd-45a2-4605-8034-c342d05d5a9d.png"></img>
+><!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+    <h2>Server&Client</h2>
+      <ul>
+          <h3>Server</h3>
+          <ul>
+            <li>네트워크 상에서 클라이언트(사용자 또는 사용자의 프로그램)에게 서비스를 제공하는 컴퓨터 또는 프로그램을 뜻한다.</li>
+            <li>서버는 일반적으로 네트워크 상에서 클라이언트와 통신하기 위해 고유한 IP 주소를 가지며, 클라이언트는 IP 주소와 포트 번호를 이용해 서버에 접속한다.</li>
+            <li>예를 들면, 웹 서버는 사용자의 웹 브라우저로부터 요청을 받아 HTML, CSS, JavaScript 등으로 구성된 웹 페이지를 제공하고, 메일 서버는 사용자의 메일 클라이언트로부터 메일을 받아 사용자의 메일 박스에 저장하거나 다른 사용자에게 전달하는 역할을 한다.</li>
+            <h4>서비스 전체를 제공 == Django Web Service</h4>
+            <ul>
+              <li>Django를 통해 전달받은 HTML에는 하나의 웹 페이지를 구성할 수 있는 모든 데이터가 포함되어있다.</li>
+              <li>즉, 서버에서 모든 내용을 렌더링하여 하나의 HTML 파일로 제공한다.</li>
+            </ul>
+            <h4>정보를 제공 == DRF API Service</h4>
+            <ul>
+              <li>Django를 통해 관리하는 정보만을 클라이언트에게 제공한다.</li>
+              <li>DRF를 사용하여 JSON으로 변환한다.</li>
+            </ul>
+            <img src="https://github.com/Jinga02/Review/assets/110621233/f29ec711-a190-42dd-9148-71449e521420" alt="서버1">
+            <img src="https://github.com/Jinga02/Review/assets/110621233/635d2511-598c-431f-ae2c-2560ebaad5a5" alt="서버2">
+          </ul>
+          <h3>Client</h3>
+          <ul>
+            <li>Server가 제공하는 서비스에 적절한 요청을 통해 Serve로부터 반환 받은 응답을 사용자에게 표현하는 기능을 가진 프로그램 혹은 시스템을 뜻한다.</li>
+            <li>Server가 정의한 방식대로 요청 인자를 넘겨 요청하며, Serve는 정상적인 요청에 적합한 응답을 제공한다.</li>
+            <img src="https://github.com/Jinga02/Review/assets/110621233/6054bb77-97c6-4371-9ea8-58bfa71d91fb" alt="클라이언트1">
+            <li>사용자의 요청에 적합한 data를 Server에 요청하여 응답 받은 결과로 적절한 화면을 구성한다.</li>
+            <img src="https://github.com/Jinga02/Review/assets/110621233/5d979506-f092-4292-a01a-2540a31b6a25" alt="클라이언트2">
+          </ul>              
+      </ul>
+
+   > <h2>Vue with DRF 준비</h2>
+      <ul>
+          <h3>메인페이지 구성</h3>
+          <p>제가 공부할 때 사용했던 파일을 기준으로 작성했습니다.</p>
+          <ul>
+            <li>views/ArticleView.vue component 확인 및 route 등록</li>
+            <img src="https://github.com/Jinga02/Review/assets/110621233/9078354a-83a5-4295-98ee-c853901c51db" alt="메인페이지 구성1">
+            <img src="https://github.com/Jinga02/Review/assets/110621233/8926f76c-cda0-49d4-ba49-ea009768b1b0" alt="메인페이지 구성1-1">
+            <li>srt/App.vue router-link 주석 해제 및 결과 확인</li>
+            <img src="https://github.com/Jinga02/Review/assets/110621233/2199eb86-3229-424f-994a-9b727a26402e" alt="메인페이지 구성2">
+            <img src="https://github.com/Jinga02/Review/assets/110621233/edc3bd62-9703-4c87-8eb2-f5f3b8bd77b3" alt="메인페이지 구성2-1">
+            <li>components/ArticleList.vue 확인</li>
+            <ul>
+              <li>전체 게시물을 표현 할 컴포넌트</li>
+              <li>화면 구성을 위한 최소한의 style포함</li>
+            </ul>
+            <img src="https://github.com/Jinga02/Review/assets/110621233/c5ad3d17-f094-4b9c-a77f-0064e6cbe1ad" alt="메인페이지 구성3">
+            <li>views/ArticleView.vue 주석 해제</li>
+            <ul>
+              <li>ArticleList 하위 컴포넌트로 등록</li>
+              <li>1. 불러오기 / 2. 등록하기 / 3. 보여주기</li>
+            </ul>
+            <img src="https://github.com/Jinga02/Review/assets/110621233/3e300178-9966-4aea-b735-ee94ca0281c9" alt="메인페이지 구성4">
+            <li>components/ArticleListItem.vue확인</li>
+            <ul>
+              <li>각 게시글들의 정보를 표현 할 컴포넌트</li>
+              <li>데이터 없이 최소한의 기본 구조만 확인</li>
+            </ul>
+            <img src="https://github.com/Jinga02/Review/assets/110621233/0914323e-1a61-4bea-be2b-c8ff849af568" alt="메인페이지 구성5">
+            <li>components/ArticleList.vue 주석해제</li>
+            <ul>
+              <li>ArticleListItem 하위 컴포넌트로 등록</li>
+              <li>1. 불러오기 / 2. 등록하기 / 3. 보여주기</li>
+            </ul>
+            <img src="https://github.com/Jinga02/Review/assets/110621233/6d75710c-475d-4249-bf0c-8146c88e4096" alt="메인페이지 구성6">
+          </ul>
+          <li>store/index.js 주석해제</li>
+          <ul>
+            <li>화면 표현 체크용 더미데이터 생성</li>
+          </ul>
+          <img src="https://github.com/Jinga02/Review/assets/110621233/18f6720d-79b6-4ea4-b2d3-dd9ac26ee8c3" alt="메인페이지 구성7">
+          <li>components/ArticleList.vue 코드 수정</li>
+          <img src="https://github.com/Jinga02/Review/assets/110621233/bf5ea552-b38d-41c5-ba31-70533172f4ad" alt="메인페이지 구성8">
+          <li>components/ArticleListItem.vue 수정</li>
+          <ul>
+            <li>내려 받은 prop 데이터로 화면 구성</li>
+          </ul>
+          <img src="https://github.com/Jinga02/Review/assets/110621233/5c3e84bb-3da6-4a13-9f55-81d9b47081c1" alt="메인페이지 구성9">
+          <h3>AJAX요청 준비</h3>
+          <ul>
+            <li>axios 설정 : npm install axios</li>
+            <li>store/index.js에서 불러오기</li>
+            <ul>
+              <li>요청 보낼 API server 도메인 변수에 담기</li>
+            </ul>
+            <img src="https://github.com/Jinga02/Review/assets/110621233/535261a9-24ae-4a34-b6c1-10c43640b4c9" alt="AJAX요청준비1">
+            <li>store/index.js getArticles 메서드 정의</li>
+            <img src="https://github.com/Jinga02/Review/assets/110621233/5751f161-fbd9-4e52-8830-903b32e9fa00" alt="AJAX요청준비2">
+            <li>getArticleView.vue의 actions(getArticles) 호출</li>
+            <ul>
+              <li>인스턴스가 생성된 직후 요청을 보내기 위해 created() hook 사용</li>
+            </ul>
+            <img src="https://github.com/Jinga02/Review/assets/110621233/99b4e1cc-7b6f-4989-9af3-05394a0e6de0" alt="AJAX요청준비3">
+            <li>요청 결과 확인</li>
+            <ul>
+              <li>Server에서는 200을 반환하였으나 Client Console에서는 Error를 확인</li>
+              <img src="https://github.com/Jinga02/Review/assets/110621233/d6eb3ded-3cd6-4ee7-b691-21890549601a" alt="AJAX결과1">
+              <img src="https://github.com/Jinga02/Review/assets/110621233/ff84fd0b-813d-4a27-b38b-51d223a873e5" alt="AJAX결과2">
+            </ul>
+            <h4>위와 같은 문제가 발생하는 원인</h4>
+            <ul>
+              <li>브라우저가 요청을 보내고 서버의 응답이 브라우저에 도착</li>            
+              <li>Server의 log는 200(정상)을 반환</li>
+              <li>즉 Server는 정상적으로 응답했지만 브라우저가 막은 것이다.</li>
+              <li>보안상의 이유로 브라우저는 동일 출처 정책(SOP)에 의해 다른 출처의 리소스와 상호작용 하는 것을 제한 한다.</li>
+            </ul>            
+            </ul>
+      </ul>
+
+   > <h2>CORS</h2>
+      <ul>
+        <h3>Cross-Origin Resource Sharing</h3>        
+        <h4>Origin - 출처</h4>
+        <ul>
+          <li>URL의 Protocol. Host, Port를 모두 포함하여 출처라고 부르며, 이미지의 세 영역이 일치하는 경우에만 동일 출처로 인정한다.</li>
+          <img src="https://github.com/Jinga02/Review/assets/110621233/90576fc8-5803-4df7-95d9-34346e216550" alt="sameOrigin">
+          <li>Same Origin 예시</li>
+          <img src="https://github.com/Jinga02/Review/assets/110621233/69c7d895-a9ad-4492-a493-3fda9ff09c7c" alt="sameOrigin예시">
+        </ul>
+        <h4>Cors- 교차 출처 리소스 공유</h4>
+        <ul>
+          <li>다른 출처에서 온 리소스를 공유하는 것에 대한 정책으로 Same Origin 해결</li>
+          <li>다른 출처의 리소스를 불러오려면 그 출처에서 올바른 CORS headers를 포함한 응답을 반환해야한다.</li>
+        </ul>
+        <h3>CORS 설정하기</h3>
+        <ul>
+          <li>CORS 표준에 의해 추가된 HTTP Response Header를 통해 통제가 가능하다.</li>
+          <h4>django-cors-headers library</h4>
+          <ul>
+            <li>응답에 CORS header를 추가해주는 라이브러리이다.</li>
+            <li>다른 출처에서 Django 애플리케이션에 대한 브라우저 내 요청을 허용한다.</li>
+            <h4>라이브러리 사용하기</h4>
+            <ul>
+              <li>라이브러리 설치 및 requirements.txt 업데이트</li>
+              <img src="https://github.com/Jinga02/Review/assets/110621233/459c352c-8127-4f68-bf55-6f2a9f8b474e" alt="cors-header-1">
+              <li>App추가 및 MIDDLEWARE 추가</li>
+              <img src="https://github.com/Jinga02/Review/assets/110621233/edbb5ddc-976a-46db-9cd6-dc067f28863c" alt="cors-header-2">
+              <li>CORS_ALLOWED_ORIGINS에 교차 출처 자원 공유를 허용할 Domain 등록</li>
+              <img src="https://github.com/Jinga02/Review/assets/110621233/1a1b64e5-574b-4df3-b436-5bdb18cd27ac" alt="cors-header-3">
+              <img src="https://github.com/Jinga02/Review/assets/110621233/b74e5053-8c10-4b24-9422-e2d5a5794cdb" alt="cors-header-4">
+            </ul>
+          </ul>
+        </ul>
+      </ul>
+
+  ><h2>Vue with DRF (CORS)</h2>
+    <ul>
+        <h3>Article Read</h3>
+        <ul>
+          <li>응답받은 데이터 구조 확인</li>
+          <ul>
+            <li>data Array에 각 게시글 객체</li>
+            <li>각 게시글 객체는 id, title, content로 구성되어있다.</li>
+          </ul>
+          <li>store/index.js 수정</li>
+          <img src="https://github.com/Jinga02/Review/assets/110621233/8e293794-bb08-4f38-8a0a-c0c6f04d173b" alt="store/index.js 수정">
+          <li>결과 확인</li>
+          <img src="https://github.com/Jinga02/Review/assets/110621233/a546043d-cd1e-405a-8dd5-95453c0e830d" alt="storeindex결과"> 
+        </ul>
+        <h3>Article Create</h3>
+        <ul>
+          <li>views/Createview.vue 작성</li>
+          <img src="https://github.com/Jinga02/Review/assets/110621233/daaaccd1-d2b4-49c7-9a23-c6bc3d40d762" alt="Article Create1">
+          <img src="https://github.com/Jinga02/Review/assets/110621233/a5d63edc-4dfe-418a-9031-c5b57cf62863" alt="Article Create2">
+          <li>router/index.js CreateView 불러오기</li>
+          <img src="https://github.com/Jinga02/Review/assets/110621233/f1b7a598-4cd0-45a0-a4ab-356f029b2cfd" alt="createview-router">
+          <li>views/ArticleView.vue router-link 작성</li>
+          <img src="https://github.com/Jinga02/Review/assets/110621233/c36b7a71-746b-4cb5-951c-5512d267b02e" alt="createview-router-link"> 
+          <li>게시글 생성 후, ArticleView로 이동 후 생성된 게시글 확인</li>
+          <li>ArticleView가 create될 때 마다 server에 게시글 전체 데이터를 요청하고 있기 때문에 router로 이동만 했는데도 게시글이 표시된다.</li>
+        </ul>
+        <h3>Article Detail</h3>
+        <ul>
+          <li>views/DetailView.vue 작성</li>
+          <img src="https://github.com/Jinga02/Review/assets/110621233/d5db8e0b-526d-4470-b8c4-6bdd4af41e21" alt="DetailView1">
+          <img src="https://github.com/Jinga02/Review/assets/110621233/3d9ef516-7b04-4ea0-a5f0-ee4f6a0cc2d4" alt="DetailView2">
+          <li>router/index.js에 DetailView routes 작성</li>
+          <img src="https://github.com/Jinga02/Review/assets/110621233/c11ef191-0b30-4003-acde-41ac4edd5b33" alt="DetailView-routes">
+          <li>components/ArticleListItem.vue에 router-link 작성</li>
+          <img src="https://github.com/Jinga02/Review/assets/110621233/fe7fe359-b68a-4e99-9850-abd6e2102420" alt="DetailView-router-link">
+        </ul>
+    </ul>
+
+>    <h3>참고</h3>
+  <h3>CORS란</h3> 
+    <a href="https://hannut91.github.io/blogs/infra/cors">hannut91</a> <br>
+    <a href="https://fomaios.tistory.com/entry/Network-CORS%EB%9E%80-feat-%EB%B3%B4%EC%95%88HTTP">Fomagran</a>
+
+<img src="https://user-images.githubusercontent.com/110621233/231062359-1b7d42fd-45a2-4605-8034-c342d05d5a9d.png"></img>
+
+</body>
+</html>
