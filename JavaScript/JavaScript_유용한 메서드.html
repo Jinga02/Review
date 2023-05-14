@@ -1,163 +1,148 @@
-<img src="https://user-images.githubusercontent.com/110621233/231062359-1b7d42fd-45a2-4605-8034-c342d05d5a9d.png"></img>
->
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 </head>
-
 <body>
   <h2>Object메서드</h2>
   <ul>
-    <li>Object.assign</li>
+    <li><h3>Object.assign</h3></li>
     <ul>
       <li>Object.assign 메소드는 열거할 수 있는 하나 이상의 출처 객체로부터 대상 객체로 프로퍼티를 복사할 때 사용되며, 대상 객체를 반환한다.
         <pre>
-            <code>
-            let obj1 = { a: 1 };
-            let obj2 = { b: 2 };
-            let merged = Object.assign(obj1, obj2);
-            console.log(merged); // { a: 1, b: 2 }
-            </code>
-            </pre>
+          <code>let obj1 = { a: 1 };
+let obj2 = { b: 2 };
+let merged = Object.assign(obj1, obj2);
+console.log(merged); // { a: 1, b: 2 }
+</code>
+        </pre>
       </li>
     </ul>
-    <li>Object.keys</li>
+    <li><h3>Object.keys</h3></li>
     <ul>
       <li>Object.keys 메소드는 주어진 객체의 자신의 열거 가능한 프로퍼티 이름들을 배열로 반환한다.
         <pre>
-            <code>
-            let obj = { a: 1, b: 2, c: 3 };
-            let keys = Object.keys(obj);
-            console.log(keys); // ["a", "b", "c"]
-            </code>
-            </pre>
+          <code>let obj = { a: 1, b: 2, c: 3 };
+let keys = Object.keys(obj);
+console.log(keys); // ["a", "b", "c"]
+</code>
+        </pre>
       </li>
     </ul>
-    <li>Object.values</li>
+    <li><h3>Object.values</h3></li>
     <ul>
       <li>Object.values 메소드는 주어진 객체가 가진 자신의 열거 가능한 프로퍼티 값들을 배열로 반환한다.
         <pre>
-            <code>
-            let obj = { a: 1, b: 2, c: 3 };
-            let values = Object.values(obj);
-            console.log(values); // [1, 2, 3]
-            </code>
-            </pre>
+          <code>let obj = { a: 1, b: 2, c: 3 };
+let values = Object.values(obj);
+console.log(values); // [1, 2, 3]
+</code>
+        </pre>
       </li>
     </ul>
-    <li>Object.entries</li>
+    <li><h3>Object.entries</h3></li>
     <ul>
       <li>Object.entries 메소드는 주어진 객체 자신의 열거 가능한 문자열 키-값 쌍의 배열을 반환한다.
         <pre>
-            <code>
-            let obj = { a: 1, b: 2, c: 3 };
-            let entries = Object.entries(obj);
-            console.log(entries); // [["a", 1], ["b", 2], ["c", 3]]
-            </code>
-            </pre>
+          <code>let obj = { a: 1, b: 2, c: 3 };
+let entries = Object.entries(obj);
+console.log(entries); // [["a", 1], ["b", 2], ["c", 3]]
+</code>
+        </pre>
       </li>
     </ul>
-    <li>Object.fromEntries</li>
+    <li><h3>Object.fromEntries</h3></li>
     <ul>
       <li>Object.fromEntries 메소드는 키-값 쌍의 리스트(2차원 배열 등)를 객체로 변환한다.
       <li>이 메소드는 Object.entries의 반대 동작을 한다.</li>
       <pre>
-            <code>
-            let entries = [["a", 1], ["b", 2], ["c", 3]];
-            let obj = Object.fromEntries(entries);
-            console.log(obj); // { a: 1, b: 2, c: 3 }
-            </code>
-            </pre>
+        <code>let entries = [["a", 1], ["b", 2], ["c", 3]];
+let obj = Object.fromEntries(entries);
+console.log(obj); // { a: 1, b: 2, c: 3 }
+</code>
+      </pre>
       </li>
     </ul>
   </ul>
   <h2>Number, Math</h2>
   <ul>
-    <li>toString()</li>
+    <li><h3>toString()</h3></li>
     <ul>
       <li>진수 변환: 이 메소드는 주어진 숫자를 문자열로 변환한다.
       <li>선택적으로 기수(진법)를 인수로 전달할 수 있다.</li>
       <pre>
-            <code>
-            let num = 17;
-            console.log(num.toString()); // "17"
-            console.log(num.toString(2)); // "10001" (2진수)
-            console.log(num.toString(16)); // "11" (16진수)
-            </code>
+<code>
+let num = 17;
+console.log(num.toString()); // "17"
+console.log(num.toString(2)); // "10001" (2진수)
+console.log(num.toString(16)); // "11" (16진수)
+</code>
             </pre>
       </li>
     </ul>
-    <li>Math.PI</li>
+    <li><h3>Math.PI</h3></li>
     <ul>
       <li>Math.PI 속성은 원주율(π≈3.14159)을 나타낸다.
         <pre>
-            <code>
-            console.log(Math.PI); // 3.141592653589793
-            </code>
-            </pre>
+<code>console.log(Math.PI); // 3.141592653589793
+</code>
+        </pre>
       </li>
     </ul>
-    <li>Math.ceil()</li>
+    <li><h3>Math.ceil()</h3></li>
     <ul>
       <li>Math.ceil() 메소드는 주어진 숫자 이상의 최소 정수를 반환한다.
         <pre>
-            <code>
-            console.log(Math.ceil(1.4)); // 2
-            </code>
-            </pre>
+<code>console.log(Math.ceil(1.4)); // 2
+</code>
+        </pre>
       </li>
     </ul>
-    <li>Math.floor()</li>
+    <li><h3>Math.floor()</h3></li>
     <ul>
       <li>Math.floor() 메소드는 주어진 숫자 이하의 최대 정수를 반환한다.
         <pre>
-            <code>
-            console.log(Math.floor(1.6)); // 1
-            </code>
-            </pre>
+<code>console.log(Math.floor(1.6)); // 1
+</code>
+        </pre>
       </li>
     </ul>
-    <li>Math.round()</li>
+    <li><h3>Math.round()</h3></li>
     <ul>
       <li>Math.round() 메소드는 주어진 숫자를 가장 가까운 정수로 반올림한다.
         <pre>
-            <code>
-            console.log(Math.round(1.5)); // 2
-            </code>
-            </pre>
+<code>console.log(Math.round(1.5)); // 2
+</code>
+        </pre>
       </li>
     </ul>
-    <li>toFixed()</li>
+    <li><h3>toFixed()</h3></li>
     <ul>
       <li>toFixed() 메소드는 주어진 숫자를 고정된 소수점 표현으로 변환하며, 괄호 안에는 소수점 아래의 자릿수를 지정한다.
         <pre>
-            <code>
-            let num = 1.23456;
-            console.log(num.toFixed(2)); // "1.23"
-            </code>
-            </pre>
+<code>let num = 1.23456;
+console.log(num.toFixed(2)); // "1.23"
+</code>
+        </pre>
       </li>
     </ul>
-    <li>toFixed()사용하지 않고 소수자리 반올림</li>
+    <li><h3>toFixed()사용하지 않고 소수자리 반올림</h3></li>
     <ul>
       <li>Math.round()와 비슷하게 작동하지만, 숫자에 곱하고 나누어 소수점 아래 자릿수를 제어한다.
         <pre>
-            <code>
-            let num = 1.23456;
-            console.log(Math.round(num * 100) / 100); // 1.23
-            </code>
-            </pre>
+<code>let num = 1.23456;
+console.log(Math.round(num * 100) / 100); // 1.23
+</code>
+        </pre>
       </li>
     </ul>
     <li>isNaN()</li>
     <ul>
-      <li>isNaN() 함수는 주어진 값이 NaN인지 여부를 판별합니다.
+      <li>isNaN() 함수는 주어진 값이 NaN인지 여부를 판별다.
         <pre>
-            <code>
-            console.log(isNaN(NaN)); // true
-            console.log(isNaN(123)); // false
-            </code>
+<code>
+console.log(isNaN(NaN)); // true
+console.log(isNaN(123)); // false
+</code>
             </pre>
       </li>
     </ul>
@@ -165,9 +150,9 @@
     <ul>
       <li>진수변환: parseInt() 함수는 문자열을 파싱하여 특정 진법(10진법 기본)의 정수를 반환한다.
         <pre>
-            <code>
-            console.log(parseInt('11', 2)); // 3 (2진법으로 11은 10진법으로 3)
-            </code>
+<code>
+console.log(parseInt('11', 2)); // 3 (2진법으로 11은 10진법으로 3)
+</code>
             </pre>
       </li>
     </ul>
@@ -175,9 +160,9 @@
     <ul>
       <li>parseFloat() 함수는 문자열을 파싱하여 부동 소수점 실수를 반환한다.
         <pre>
-            <code>
-            console.log(parseFloat('3.14')); // 3.14
-            </code>
+<code>
+console.log(parseFloat('3.14')); // 3.14
+</code>
             </pre>
       </li>
     </ul>
@@ -185,9 +170,9 @@
     <ul>
       <li>Math.random() 함수는 0 이상 1 미만의 부동소수점 의사 난수를 반환한다.
         <pre>
-            <code>
-            console.log(Math.random()); // 0.7098488023916801 (결과는 매번 다르게 나옴)
-            </code>
+<code>
+console.log(Math.random()); // 0.7098488023916801 (결과는 매번 다르게 나옴)
+</code>
             </pre>
       </li>
     </ul>
@@ -195,10 +180,10 @@
     <ul>
       <li>Math.max()는 주어진 숫자 중에서 가장 큰 값을, Math.min()은 가장 작은 값을 반환한다.
         <pre>
-            <code>
-            console.log(Math.max(1, 2, 3)); // 3
-            console.log(Math.min(1, 2, 3)); // 1
-            </code>
+<code>
+console.log(Math.max(1, 2, 3)); // 3
+console.log(Math.min(1, 2, 3)); // 1
+</code>
             </pre>
       </li>
     </ul>
@@ -206,9 +191,9 @@
     <ul>
       <li>Math.abs() 함수는 주어진 숫자의 절대값을 반환한다.
         <pre>
-            <code>
-            console.log(Math.abs(-10)); // 10
-            </code>
+<code>
+console.log(Math.abs(-10)); // 10
+</code>
             </pre>
       </li>
     </ul>
@@ -216,9 +201,9 @@
     <ul>
       <li>Math.pow() 함수는 첫 번째 인수를 밑, 두 번째 인수를 지수로 하는 거듭제곱 값을 반환한다.
         <pre>
-            <code>
-            console.log(Math.pow(2, 3)); // 8
-            </code>
+<code>
+console.log(Math.pow(2, 3)); // 8
+</code>
             </pre>
       </li>
     </ul>
@@ -226,9 +211,9 @@
     <ul>
       <li>Math.sqrt() 함수는 주어진 숫자의 제곱근을 반환한다.
         <pre>
-            <code>
-            console.log(Math.sqrt(9)); // 3
-            </code>
+<code>
+console.log(Math.sqrt(9)); // 3
+</code>
             </pre>
       </li>
     </ul>
@@ -240,12 +225,12 @@
         <li>이들은 JavaScript에서 문자열을 표현하는 데 사용되는 따옴표이다.
         <li>백틱(`)은 템플릿 문자열을 작성할 때 사용된다.</li>
         <pre>
-              <code>
-              let str1 = 'single quotes';
-              let str2 = "double quotes";
-              let str3 = `template literal ${str1}`;
-              console.log(str3); // "template literal single quotes"
-              </code>
+<code>
+let str1 = 'single quotes';
+let str2 = "double quotes";
+let str3 = `template literal ${str1}`;
+console.log(str3); // "template literal single quotes"
+</code>
               </pre>
         </li>
       </ul>
@@ -253,10 +238,10 @@
       <ul>
         <li>str.length 속성은 문자열의 길이를 반환한다.
           <pre>
-              <code>
-              let str = 'Hello';
-              console.log(str.length); // 5
-              </code>
+<code>
+let str = 'Hello';
+console.log(str.length); // 5
+</code>
               </pre>
         </li>
       </ul>
@@ -264,11 +249,11 @@
       <ul>
         <li>str.toUpperCase() 메서드는 문자열을 대문자로, str.toLowerCase() 메서드는 문자열을 소문자로 변환한다.
           <pre>
-              <code>
-              let str = 'Hello';
-              console.log(str.toUpperCase()); // "HELLO"
-              console.log(str.toLowerCase()); // "hello"
-              </code>
+<code>
+let str = 'Hello';
+console.log(str.toUpperCase()); // "HELLO"
+console.log(str.toLowerCase()); // "hello"
+</code>
               </pre>
         </li>
       </ul>
@@ -276,11 +261,11 @@
       <ul>
         <li>str.indexOf() 메서드는 문자열 내에서 지정된 값이 처음 나타나는 인덱스를 반환하며, 값이 없으면 -1을 반환한다.
           <pre>
-              <code>
-              let str = 'Hello, world';
-              console.log(str.indexOf('world')); // 7
-              console.log(str.indexOf('bye')); // -1
-              </code>
+<code>
+let str = 'Hello, world';
+console.log(str.indexOf('world')); // 7
+console.log(str.indexOf('bye')); // -1
+</code>
               </pre>
         </li>
       </ul>
@@ -288,11 +273,11 @@
       <ul>
         <li>str.includes() 메서드는 문자열이 특정 문자열을 포함하고 있는지를 확인하고, 그 결과를 불리언 값으로 반환한다.
           <pre>
-              <code>
-              let str = 'Hello, world';
-              console.log(str.includes('world')); // true
-              console.log(str.includes('bye')); // false
-              </code>
+<code>
+let str = 'Hello, world';
+console.log(str.includes('world')); // true
+console.log(str.includes('bye')); // false
+</code>
               </pre>
         </li>
       </ul>
@@ -300,10 +285,10 @@
       <ul>
         <li>str.slice() 메서드는 문자열의 일부분을 추출하고 새로운 문자열을 반환하며, 원본 문자열은 변경되지 않는다.
           <pre>
-              <code>
-              let str = 'Hello, world';
-              console.log(str.slice(7)); // "world"
-              </code>
+<code>
+let str = 'Hello, world';
+console.log(str.slice(7)); // "world"
+</code>
               </pre>
         </li>
       </ul>
@@ -311,11 +296,11 @@
       <ul>
         <li>str.substring() 메서드는 두 인덱스 사이의 문자열을 추출하고 새로운 문자열을 반환하며, 원본 문자열은 변경되지 않는다.
           <pre>
-    <code>
-    let str = 'Hello, world';
-    console.log(str.substring(0, 5)); // "Hello"
-    console.log(str.substring(7)); // "world"
-    </code>
+<code>
+let str = 'Hello, world';
+console.log(str.substring(0, 5)); // "Hello"
+console.log(str.substring(7)); // "world"
+</code>
     </pre>
         </li>
       </ul>
@@ -323,10 +308,10 @@
       <ul>
         <li>str.substr() 메서드는 시작 인덱스부터 특정 개수의 문자를 추출하고 새로운 문자열을 반환하며, 원본 문자열은 변경되지 않는다.
           <pre>
-                  <code>
-                  let str = 'Hello, world';
-                  console.log(str.substr(7, 5)); // "world"
-                  </code>
+<code>
+let str = 'Hello, world';
+console.log(str.substr(7, 5)); // "world"
+</code>
                   </pre>
         </li>
       </ul>
@@ -334,10 +319,10 @@
       <ul>
         <li>str.trim() 메서드는 문자열의 시작과 끝에서 공백 문자를 제거하고 그 결과를 반환한다.
           <pre>
-                  <code>
-                  let str = '   Hello, world   ';
-                  console.log(str.trim()); // "Hello, world"
-                  </code>
+<code>
+let str = '   Hello, world   ';
+console.log(str.trim()); // "Hello, world"
+</code>
                   </pre>
         </li>
       </ul>
@@ -345,10 +330,10 @@
       <ul>
         <li>str.repeat() 메서드는 문자열을 주어진 횟수만큼 반복하고 그 결과를 반환한다.
           <pre>
-                  <code>
-                  let str = 'Hello ';
-                  console.log(str.repeat(3)); // "Hello Hello Hello "
-                  </code>
+<code>
+let str = 'Hello ';
+console.log(str.repeat(3)); // "Hello Hello Hello "
+</code>
                   </pre>
         </li>
       </ul>
@@ -359,11 +344,11 @@
         <ul>
           <li>arr.splice() 메서드는 배열의 기존 요소를 삭제하거나 교체하거나 새 요소를 추가하여 배열의 내용을 변경한다.
             <pre>
-                  <code>
-                  let arr = [1, 2, 3, 4, 5];
-                  arr.splice(2, 1, 'three'); // 인덱스 2에서 1개의 요소를 제거하고 'three'를 추가
-                  console.log(arr); // [1, 2, "three", 4, 5]
-                  </code>
+<code>
+let arr = [1, 2, 3, 4, 5];
+arr.splice(2, 1, 'three'); // 인덱스 2에서 1개의 요소를 제거하고 'three'를 추가
+console.log(arr); // [1, 2, "three", 4, 5]
+</code>
                   </pre>
           </li>
         </ul>
@@ -371,12 +356,12 @@
         <ul>
           <li>arr.concat() 메서드는 두 개 이상의 배열을 합친다.
             <pre>
-                  <code>
-                  let arr1 = [1, 2, 3];
-                  let arr2 = [4, 5, 6];
-                  let arr3 = arr1.concat(arr2);
-                  console.log(arr3); // [1, 2, 3, 4, 5, 6]
-                  </code>
+<code>
+let arr1 = [1, 2, 3];
+let arr2 = [4, 5, 6];
+let arr3 = arr1.concat(arr2);
+console.log(arr3); // [1, 2, 3, 4, 5, 6]
+</code>
                   </pre>
           </li>
         </ul>
@@ -384,12 +369,12 @@
         <ul>
           <li>arr.forEach() 메서드는 배열에 있는 각 요소에 대해 주어진 함수를 실행한다.
             <pre>
-                  <code>
-                  let arr = [1, 2, 3, 4, 5];
-                  arr.forEach((element, index) => {
-                    console.log(`Element ${element} exists at index: ${index}`);
-                  });
-                  </code>
+<code>  
+let arr = [1, 2, 3, 4, 5];
+arr.forEach((element, index) => {
+console.log(`Element ${element} exists at index: ${index}`);
+});
+</code>
                   </pre>
           </li>
         </ul>
@@ -398,11 +383,11 @@
           <li>arr.indexOf() 메서드는 배열에서 지정된 요소를 찾을 수 있는 첫 번째 인덱스를 반환하고, 없으면 -1을 반환한다.
           <li>arr.lastIndexOf() 메서드는 배열의 끝에서부터 지정된 요소를 찾을 수 있는 첫 번째 인덱스를 반환하고, 없으면 -1을 반환한다.</li>
           <pre>
-    <code>
-    let arr = [1, 2, 3, 2, 1];
-    console.log(arr.indexOf(2)); // 1
-    console.log(arr.lastIndexOf(2)); // 3
-    </code>
+<code>
+let arr = [1, 2, 3, 2, 1];
+console.log(arr.indexOf(2)); // 1
+console.log(arr.lastIndexOf(2)); // 3
+</code>
     </pre>
           </li>
         </ul>
@@ -413,13 +398,13 @@
           <li>arr.find() 메서드는 주어진 테스트 함수를 만족하는 배열의 첫 번째 요소를 반환하고, 없으면 undefined를 반환한다.
           <li>arr.findIndex() 메서드는 만족하는 첫 번째 요소의 인덱스를 반환하고, 없으면 -1을 반환한다.</li>
           <pre>
-                      <code>
-                      let arr = [1, 2, 3, 4, 5];
-                      let foundElement = arr.find(element => element > 2);
-                      console.log(foundElement); // 3
-                      let foundIndex = arr.findIndex(element => element > 2);
-                      console.log(foundIndex); // 2
-                      </code>
+<code>
+let arr = [1, 2, 3, 4, 5];
+let foundElement = arr.find(element => element > 2);
+console.log(foundElement); // 3
+let foundIndex = arr.findIndex(element => element > 2);
+console.log(foundIndex); // 2
+</code>
                       </pre>
           </li>
         </ul>
@@ -427,11 +412,11 @@
         <ul>
           <li>arr.filter() 메서드는 주어진 함수의 테스트를 통과하는 모든 요소로 이루어진 새로운 배열을 생성한다.
             <pre>
-                      <code>
-                      let arr = [1, 2, 3, 4, 5];
-                      let filteredArr = arr.filter(element => element > 2);
-                      console.log(filteredArr); // [3, 4, 5]
-                      </code>
+<code>
+let arr = [1, 2, 3, 4, 5];
+let filteredArr = arr.filter(element => element > 2);
+console.log(filteredArr); // [3, 4, 5]
+</code>
                       </pre>
           </li>
         </ul>
@@ -439,11 +424,11 @@
         <ul>
           <li>arr.reverse() 메서드는 배열의 요소 순서를 반전시킨다.
             <pre>
-                      <code>
-                      let arr = [1, 2, 3, 4, 5];
-                      arr.reverse();
-                      console.log(arr); // [5, 4, 3, 2, 1]
-                      </code>
+<code>
+let arr = [1, 2, 3, 4, 5];
+arr.reverse();
+console.log(arr); // [5, 4, 3, 2, 1]
+</code>
                       </pre>
           </li>
         </ul>
@@ -451,11 +436,11 @@
         <ul>
           <li>arr.map() 메서드는 배열 내의 모든 요소 각각에 대하여 주어진 함수를 호출한 결과를 모아 새로운 배열을 반환한다.
             <pre>
-                      <code>
-                      let arr = [1, 2, 3, 4, 5];
-                      let mappedArr = arr.map(element => element * 2);
-                      console.log(mappedArr); // [2, 4, 6, 8, 10]
-                      </code>
+<code>
+let arr = [1, 2, 3, 4, 5];
+let mappedArr = arr.map(element => element * 2);
+console.log(mappedArr); // [2, 4, 6, 8, 10]
+</code>
                       </pre>
           </li>
         </ul>
@@ -463,11 +448,11 @@
         <ul>
           <li>arr.join() 메서드는 배열의 모든 요소를 연결하여 하나의 문자열을 만든다.
             <pre>
-                      <code>
-                      let arr = ['Hello', 'world'];
-                      let joinedStr = arr.join(' ');
-                      console.log(joinedStr); // "Hello world"
-                      </code>
+<code>
+let arr = ['Hello', 'world'];
+let joinedStr = arr.join(' ');
+console.log(joinedStr); // "Hello world"
+</code>
                       </pre>
           </li>
         </ul>
@@ -475,11 +460,11 @@
         <ul>
           <li>arr.split() 메서드는 문자열을 구분자를 기준으로 분할하여 배열로 반환한다.
             <pre>
-                      <code>
-                      let str = 'Hello world';
-                      let splitArr = str.split(' ');
-                      console.log(splitArr); // ["Hello", "world"]
-                      </code>
+<code>
+let str = 'Hello world';
+let splitArr = str.split(' ');
+console.log(splitArr); // ["Hello", "world"]
+</code>
                       </pre>
           </li>
         </ul>
@@ -489,12 +474,12 @@
           <ul>
             <li>Array.isArray() 메서드는 주어진 값이 배열인지를 판별한다.
               <pre>
-                          <code>
-                          let arr = [1, 2, 3];
-                          console.log(Array.isArray(arr)); // true
-                          let str = 'Hello';
-                          console.log(Array.isArray(str)); // false
-                          </code>
+<code>
+let arr = [1, 2, 3];
+console.log(Array.isArray(arr)); // true
+let str = 'Hello';
+console.log(Array.isArray(str)); // false
+</code>
                           </pre>
             </li>
           </ul>
@@ -502,11 +487,11 @@
           <ul>
             <li>arr.sort() 메서드는 배열의 요소를 적절한 위치에 정렬하며 기본 정렬 순서는 문자열의 유니코드 코드 포인트에 따른다.
               <pre>
-                          <code>
-                          let arr = [1, 5, 2, 4, 3];
-                          arr.sort();
-                          console.log(arr); // [1, 2, 3, 4, 5]
-                          </code>
+<code>
+let arr = [1, 5, 2, 4, 3];
+arr.sort();
+console.log(arr); // [1, 2, 3, 4, 5]
+</code>
                           </pre>
             </li>
           </ul>
@@ -514,27 +499,67 @@
           <ul>
             <li>arr.reduce() 메서드는 배열의 각 요소에 대해 주어진 리듀서 함수를 실행하고, 단일 출력값을 반환한다.
               <pre>
-                          <code>
-                          let arr = [1, 2, 3, 4, 5];
-                          let sum = arr.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
-                          console.log(sum); // 15
-                          </code>
+<code>
+let arr = [1, 2, 3, 4, 5];
+let sum = arr.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+console.log(sum); // 15
+</code>
                           </pre>
             </li>
           </ul>
-
-
-
         </ul>
+        <h2>setTimeout</h2>
+  <p>setTimeout 함수는 일정 시간이 지난 후에 콜백 함수를 실행하는 타이머 함수입니다. 콜백 함수는 지정된 시간(ms)이 경과된 후에 한 번 실행됩니다.</p>
+  <h3>Example 1: Delayed Greeting</h3>
+  <p>This example demonstrates using setTimeout to delay the execution of a greeting message.</p>
+  <pre><code>
+    setTimeout(() => {
+      console.log("Hello, World!");
+    }, 2000);
+  </code></pre>
+  <h3>Example 2: Dynamically Changing Text</h3>
+  <p>This example shows how setTimeout can be used to change the text of an element dynamically.</p>
+  <pre><code>
+    const element = document.getElementById("myElement");
+    setTimeout(() => {
+      element.textContent = "Text changed dynamically!";
+    }, 3000);
+  </code></pre>
+  <h2>setInterval</h2>
+  <p>setInterval 함수는 일정한 간격으로 콜백 함수를 반복해서 실행하는 타이머 함수입니다. 콜백 함수는 지정된 간격(ms)마다 실행됩니다.</p>
+  <h3>Example 1: Countdown Timer</h3>
+  <p>This example demonstrates using setInterval to create a countdown timer.</p>
+  <pre><code>
+    let count = 10;
+    const countdown = setInterval(() => {
+      console.log(count);
+      count--;
+scss
+Copy code
+  if (count === 0) {
+    clearInterval(countdown);
+    console.log("Countdown finished!");
+  }
+}, 1000);
+</code></pre>
 
-        <p><br>
-        </p>
-        <pre>
+  <h3>Example 2: Dynamic Clock</h3>
+  <p>This example shows how setInterval can be used to create a dynamic clock that updates every second.</p>
+  <pre><code>
+    const clockElement = document.getElementById("clock");
+javascript
+Copy code
+function updateClock() {
+  const now = new Date();
+  const hours = now.getHours();
+  const minutes = now.getMinutes();
+  const seconds = now.getSeconds();
+  clockElement.textContent = `${hours}:${minutes}:${seconds}`;
+}
 
-</pre>
+setInterval(updateClock, 1000);
+</code></pre>
 
-        <h3>참고</h3>
-        <a href=""></a>
 
         <img
           src="https://user-images.githubusercontent.com/110621233/231062359-1b7d42fd-45a2-4605-8034-c342d05d5a9d.png"></img>
