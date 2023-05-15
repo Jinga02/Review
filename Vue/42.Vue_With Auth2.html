@@ -101,6 +101,29 @@
       <li>views/CreateView.vue 작성</li>
       <img src="https://github.com/Jinga02/Review/assets/110621233/8e12b75d-fd5d-4646-b604-03445b3a613c" alt="Article Create with Token1">
     </ul>
+    <h3>Create Article with User</h3>
+    <ul>
+      <li>articles/models.py 작성</li>
+      <ul>
+        <li>게시글을 작성시 User정보를 포함하여 작성하도록 해야한다.</li>
+        <li>Use정보를 Vue에서도 확인 가능하도록 정보를 제공한다.</li>
+      </ul>
+      <img src="https://github.com/Jinga02/Review/assets/110621233/b8cc0ac8-aaf1-46c3-9f39-21b18db3bf1f" alt="Create Article with User1">
+      <li>models.py를 수정했으니, makemigrations 와 migrate 진행</li>
+      <li>articles/serializers.py 작성</li>
+      <ul>
+        <li>ArticleListSerializer에서 user는 사용자가 작성하지 않기 때문에, fields에 추가해준다.</li>
+        <li>ArticleSerializer에서 user는 읽기 전용이다.</li>
+        <li>username을 확인 할 수 있도록 username field 정의를 해줘야한다.</li>
+      </ul>
+      <img src="https://github.com/Jinga02/Review/assets/110621233/22afaae6-d147-4267-bb22-bdc19cfe7f1b" alt="Create Article with User2">
+      <li>articles/views.py 수정</li>
+      <img src="https://github.com/Jinga02/Review/assets/110621233/50eb228e-fbe9-4dcd-bbcd-fe401592c709" alt="Create Article with User3">
+      <li>components/ArticlesListItem.vue 작성</li>
+      <img src="https://github.com/Jinga02/Review/assets/110621233/cf803887-1948-4396-a26e-b4a3d72bdc3a" alt="Create Article with User4">
+      <li>결과 확인</li>
+      <img src="https://github.com/Jinga02/Review/assets/110621233/969243dd-854d-45bc-8dc9-242ca2d302e1" alt="Create Article with User5">
+    </ul>
         
 
     <h3>참고</h3>
