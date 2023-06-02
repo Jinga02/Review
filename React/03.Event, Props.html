@@ -1,0 +1,54 @@
+<img src="https://user-images.githubusercontent.com/110621233/231062359-1b7d42fd-45a2-4605-8034-c342d05d5a9d.png"></img>
+><!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+    <h2>이벤트 처리</h2>
+    <ul>
+        <li>React에서 이벤트 함수를 사용하려면 일반적으로 다음과 같은 단계를 따른다.</li>
+        <ol>
+            <li>이벤트를 처리할 함수를 작성한다.</li>
+            <li>이 함수를 이벤트가 발생할 요소의 이벤트 핸들러에 연결한다.</li>
+            <img src="https://github.com/Jinga02/Baekjoon/assets/110621233/9282057d-22a5-416c-9808-37eddfa5d1dd" alt="이벤트1">
+            <img src="https://github.com/Jinga02/Baekjoon/assets/110621233/fe7aaee4-07fa-4500-9291-ce7aa72d67a8" alt="이벤트2">
+        </ol>
+        <p>여기서 주의해야 할 점은, onClick={handleClick()}가 아니라 onClick={handleClick}라는 점이다. <br>
+         이는 onClick prop에 함수를 할당하는 것이고, 함수를 호출하는 것이 아니다. <br>
+        이벤트 핸들러에 함수를 직접 호출하면, 컴포넌트가 렌더링될 때마다 함수가 실행되므로 원치 않는 동작을 유발할 수 있다.</p>
+    </ul>
+
+    <h2>Props/ 데이터 전달</h2>
+    <ul>
+        <li>Props는 React에서 컴포넌트간에 데이터를 전달하는 방법으로, React컴포넌트에 전달되는 매개변수와 같다.</li>
+        <li>React에서 컴포넌트는 다른 컴포넌트와 독립적으로 동작할 수 있지만, 종종 부모 컴포넌트로부터 데이터를 받아야 할 필요가 있다. 이 때 props를 사용하여 부모 컴포넌트로부터 자식 컴포넌트로 데이터를 전달할 수 있다.</li>
+        <h3>사용 예시</h3>
+        <ol>
+            <li>props를 사용하여 문자열을 렌더링하는 간단한 예시</li>
+            <img src="https://github.com/Jinga02/Baekjoon/assets/110621233/be49c8a0-d41b-47ae-99e6-9bf7f8bf07dc" alt="props1">
+            <li>사용자의 데이터(이름과 사진 URL 등)를 props로 받아서 렌더링하는 예시</li>
+            <img src="https://github.com/Jinga02/Baekjoon/assets/110621233/142f84d4-3cc1-4f75-93c7-4165cfbbeb84" alt="props2">    
+        </ol>       
+    </ul>
+    
+    <h2>주의할 점</h2>
+    <ul>
+        <h3><li>Props는 읽기 전용이다.</li></h3>
+        <p>React의 주요 원칙 중 하나는 props는 컴포넌트 내부에서 변경할 수 없다는 것이다. <br>
+           컴포넌트는 자신에게 전달된 props를 수정하려고 시도하면 안된다. <br>
+           이는 React의 "immutable props" 원칙을 따른다. <br>
+           컴포넌트가 내부 상태를 가지고 있어야 한다면, 그것은 일반적으로 React의 "state" 기능을 통해 관리되어야 한다.</p>
+        <h3><li>이벤트핸들러는 함수를 참조해야 한다.</li></h3>
+        <p>이벤트 핸들러로 함수를 전달할 때는 함수를 호출하지 않아야 한다. <br>
+           즉, onClick={handleClick()}가 아니라 onClick={handleClick}와 같이 작성해야 한다. <br>
+           함수를 직접 호출하면, 컴포넌트가 렌더링될 때마다 함수가 실행되므로 원치 않는 동작을 유발할 수 있다.</p>
+    </ul>
+
+<img src="https://user-images.githubusercontent.com/110621233/231062359-1b7d42fd-45a2-4605-8034-c342d05d5a9d.png"></img>
+
+</body>
+</html>
+
+
+  
+
