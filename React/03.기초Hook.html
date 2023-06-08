@@ -2,6 +2,11 @@
 ><!DOCTYPE html>
 <html lang="en">
 <head>
+  <style>
+    img{
+    width:400px;
+    }
+    </style
 </head>
 <body>
     <h2>state와 useState</h2>
@@ -18,14 +23,15 @@
           <li>useState를 사용하면 함수형 컴포넌트에서도 상태를 관리할 수 있으며, 상태 변경 시 자동으로 컴포넌트가 다시 렌더링 된다.</li>
         </ul>
         <h3>사용 예시</h3>
-        <img src="https://github.com/Jinga02/Algorithm/assets/110621233/d967ff9e-cf86-42ce-b4cd-07fb8212d2a1" alt="">
+        <img src="https://github.com/Jinga02/Review/assets/110621233/8300a3f4-40aa-47a8-86b7-c2e4bc8ba7cc" alt="useState1">
         <p>위의 예시에서는 Counter 컴포넌트에서 count라는 상태와 setCount라는 상태 변경 함수를 선언하고 있다. <br>
            useState(0)은 초기 상태를 0으로 설정한다. increment 함수와 decrement 함수는 setCount를 사용하여 count 상태를 증가시키거나 감소시키는 역할을 한다. <br>
-          주의할 점은 useState로 선언한 상태는 불변성을 유지해야 한다는 것이다. 상태를 변경할 때 기존 상태를 직접 수정하는 것이 아니라, 변경 함수를 사용하여 새로운 상태를 반환해야 한다. 이렇게 함으로써 React는 상태 변경을 감지하고 컴포넌트를 업데이트한다. <br>
+          주의할 점은 useState로 선언한 상태는 불변성을 유지해야 한다는 것이다. 상태를 변경할 때 기존 상태를 직접 수정하는 것이 아니라, 변경 함수를 사용하여 새로운 상태를 반환해야 한다. <br>
+          <img src="https://github.com/Jinga02/Review/assets/110621233/615f0019-74f8-4891-8cfc-caa8fd72b3c1" alt="ustState2"> 이렇게 함으로써 React는 상태 변경을 감지하고 컴포넌트를 업데이트한다. <br>
           위의 예시 코드는 단순한 카운터를 구현한 것이지만, useState를 사용하면 더 복잡한 상태와 로직을 다룰 수 있다. 함수형 컴포넌트에서도 상태를 간편하게 관리할 수 있어 코드의 가독성과 유지보수성을 높일 수 있다.</p>
     </ul>
 
-    <h2>useEffect</h2>
+>    <h2>useEffect</h2>
     <ul>
         <h3>개념</h3> 
         <ul>
@@ -49,20 +55,24 @@
         </p>
     </ul>
 
-    <h2>useContext</h2>
+>    <h2>useContext</h2>
     <ul>
         <h3>개념</h3>
         <ul>
             <li>React 컨텍스트(Context)를 사용할 수 있게 해주는 Hook이다.</li>
-            <li>컨텍스트를 통해 상위 컴포넌트에서 하위 컴포넌트로 데이터를 전달할 수 있다.</li>
+            <li>Context는 React 컴포넌트 트리 안에서 전역적으로 데이터를 공유하기 위한 메커니즘이다.</li>
+            <li>useContext를 사용하기 위해서는 먼저 React.createContext() 함수를 사용하여 Context 객체를 생성해야 한다.</li>
+            <li>이후, 해당 Context 객체를 사용할 컴포넌트에서 useContext() Hook을 호출하여 Context의 값을 가져올 수 있다.</li>
         </ul>
         <h3>사용예시</h3>
-        <img src="https://github.com/Jinga02/Baekjoon/assets/110621233/5082ab78-ae14-4552-85d3-cd9e10544b86" alt="useContext">
+        <img src="https://github.com/Jinga02/Review/assets/110621233/cfab71f6-6b3d-497d-8b05-3b9445c97385" alt="useContext">
         <p>ThemeToggle 컴포넌트에서는 현재 테마 값을 출력하고, 테마를 토글하는 기능은 구현되어 있지 않다.</p>
-        <p>위의 코드에서 useContext 훅은 ThemeContext의 값을 가져와서 사용할 수 있게 해준다. <br>
-         컴포넌트가 ThemeContext의 값을 구독하고, 컨텍스트 값이 변경되면 해당 컴포넌트가 자동으로 리렌더링된다. <br>
-         useContext 훅은 컨텍스트를 사용하여 컴포넌트 간에 데이터를 공유하고 효율적으로 관리하는데 유용하다다. <br>
-         다양한 컴포넌트에서 동일한 데이터를 사용해야 할 때 유용하게 활용할 수 있다. </p>
+        <p>위의 예시 코드에서는 MyContext라는 Context 객체를 생성하고, App 컴포넌트에서 MyContext.Provider를 사용하여 Context의 값을 설정한다. <br>
+         그리고 MyComponent 컴포넌트에서 useContext를 호출하여 Context의 값을 가져와서 렌더링한다. <br>
+        MyComponent 컴포넌트에서 useContext(MyContext)를 호출하면 MyContext의 값을 가져올 수 있다. <br>
+         MyContext.Provider로부터 전달된 값을 사용할 수 있으며, 해당 값은 contextValue 변수에 저장된다. <br>
+          그리고 이 값을 컴포넌트에서 사용하여 UI를 렌더링할 수 있습니다<div class="br"></div>
+        Context를 사용하면 컴포넌트 계층 구조를 깊이 파고들 필요 없이 상위 컴포넌트에서 하위 컴포넌트로 값을 전달할 수 있으며, 컴포넌트 간의 데이터 공유가 간편해진다.
     </ul>
     
 
