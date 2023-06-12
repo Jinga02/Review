@@ -1,0 +1,70 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Position</title>
+    <style>
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .box {
+        width: 200px;
+        height: 200px;
+        background-color: lightblue;
+        border: 2px solid blue;
+        position: relative;
+      }
+
+      .box.static {
+        position: static;
+      }
+
+      .box.relative {
+        position: relative;
+        top: 20px;
+        left: 20px;
+      }
+
+      .box.absolute {
+        position: absolute;
+        top: 50px;
+        left: 50px;
+      }
+
+      .box.fixed {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+      }
+
+      .box.sticky {
+        position: sticky;
+        top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box static">
+        <h3>Static</h3>
+      </div>
+      <div class="box relative">
+        <h3>Relative</h3>
+      </div>
+      <div class="box absolute">
+        <h3>Absolute</h3>
+      </div>
+      <div class="box fixed">
+        <h3>Fixed</h3>
+      </div>
+      <div class="box sticky">
+        <h3>Sticky</h3>
+      </div>
+    </div>
+  </body>
+</html>
