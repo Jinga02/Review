@@ -1,4 +1,6 @@
-## TailWind를 사용해보자!
+![백문이불여일타](https://user-images.githubusercontent.com/110621233/231062359-1b7d42fd-45a2-4605-8034-c342d05d5a9d.png)
+
+## tailwind를 사용해보자!
 
 CSS에 대해 공부하면서 여러 가지 스타일링 방법들을 시도해 보았다.
 
@@ -11,7 +13,7 @@ CSS에 대해 공부하면서 여러 가지 스타일링 방법들을 시도해 
 최근에는 tailwind CSS를 사용하게 되었다. 이전 방법들의 장점을 대부분 가져오면서, 동시에 각각의 단점을 상당 부분 해결해 준 것이 인상적이었다. 미리 정의 된 유틸리티 클래스를 사용하기 때문에 빠르게 디자인을 완성할 수 있었고, 간단하게 커스터마이징까지 가능해 완성도도 높일 수 있었다. 그리고 네이밍과 반응형 디자인에 대한 부담감도 없앨 수 있었다.
 물론 태그의 길이가 길어지고 어떤 요소에 적용된 스타일인지 한눈에 파악하기 어렵다는 단점도 있지만 장점이 더 크게 느껴지기 때문에 당분간은 tailwind를 깊게 공부하며 더 잘 활용해야겠다.
 
-## TailWind 기본 설정 및 설치
+## tailwind 기본 설정 및 설치
 
 1.  노드패키지 다운
     npm install -D tailwindcss
@@ -40,7 +42,7 @@ CSS에 대해 공부하면서 여러 가지 스타일링 방법들을 시도해 
 
 6.  postcss.config.js 파일 생성 및 설정:
     PostCSS 설정 파일입니다.
-    여기에서는 Tailwind CSS와 Autoprefixer 플러그인을 사용하도록 설정했습니다.
+    여기에서는 tailwind CSS와 Autoprefixer 플러그인을 사용하도록 설정했습니다.
     ```js
     module.exports = {
       plugins: {
@@ -51,7 +53,7 @@ CSS에 대해 공부하면서 여러 가지 스타일링 방법들을 시도해 
     ```
 7.  tailwind.config.js 파일에서 purge 설정 추가:
 
-    Tailwind CSS 설정 파일입니다.
+    tailwind CSS 설정 파일입니다.
     여기에서는 purge 옵션을 사용하여 production build에서 사용되지 않는 CSS를 제거하도록 설정했습니다.
     이를 통해 최종 CSS 파일의 크기를 줄일 수 있습니다.
 
@@ -65,10 +67,10 @@ CSS에 대해 공부하면서 여러 가지 스타일링 방법들을 시도해 
     };
     ```
 
-8 .CSS 파일에 Tailwind CSS의 지시어 추가:
+8 .CSS 파일에 tailwind CSS의 지시어 추가:
 
-    Tailwind CSS의 지시어를 추가합니다.
-    이 지시어를 통해 Tailwind CSS의 스타일을 사용할 수 있습니다.
+    tailwind CSS의 지시어를 추가합니다.
+    이 지시어를 통해 tailwind CSS의 스타일을 사용할 수 있습니다.
 
     ```js
         @import 'tailwindcss/base';
@@ -78,8 +80,8 @@ CSS에 대해 공부하면서 여러 가지 스타일링 방법들을 시도해 
 
 필요에 따라 다른 플러그인 추가:
 
-// @tailwindcss/forms는 Tailwind CSS로 폼 스타일링을 할 때 유용한 플러그인입니다.
-// 이 플러그인을 설치하면, Tailwind CSS의 유틸리티 클래스를 사용하여 폼 요소를 스타일링할 수 있습니다.
+// @tailwindcss/forms는 tailwind CSS로 폼 스타일링을 할 때 유용한 플러그인입니다.
+// 이 플러그인을 설치하면, tailwind CSS의 유틸리티 클래스를 사용하여 폼 요소를 스타일링할 수 있습니다.
 npm install @tailwindcss/forms
 그리고 tailwind.config.js 파일에 다음과 같이 추가합니다.
 
@@ -93,3 +95,5 @@ module.exports = {
   plugins: [require("@tailwindcss/forms")],
 };
 ```
+
+![백문이불여일타](https://user-images.githubusercontent.com/110621233/231062359-1b7d42fd-45a2-4605-8034-c342d05d5a9d.png)
