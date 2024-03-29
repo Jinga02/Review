@@ -1,44 +1,38 @@
-<img src="https://user-images.githubusercontent.com/110621233/231062359-1b7d42fd-45a2-4605-8034-c342d05d5a9d.png"></img>
-> <!DOCTYPE html>
-<html lang="en">
-<head>
-</head>
-<body>
-   <h2>JavaScript</h2>
-    <ol>
-        <h3><li>정의</li></h3>
-        <ul>
-            <li>웹 페이지에 이벤트 발생 시 어떻게 작동하는지 디자인/프로그래밍 등 웹 페이지 동작을 제어.</li>
-            <li>클라이언트 측 웹(브라우저)에서 실행되며, 웹의 동작을 구현하는 객체(object)기반의 스크립트 언어이다.</li>
-            <li>쉽게 말해, HTML은 자동차의 뼈대, CSS는 외관, JavaScript는 자동차의 동력원인 엔진이라고 할 수 있다.</li>
-        </ul>
-        <h3><li>특징</li></h3>
-        <ul>
-            <li>객체 기반의 스크립트 언어이다.</li>
-            <li>동적이며, 타입을 명시할 필요가 없는 인터프리터 언어이다.</li>
-            <li>객체 지향형 프로그래밍과 함수형 프로그래밍을 모두 표현할 수 있다.</li>
-        </ul>
-    </ol>
-    <h2>실행 환경 구성</h2>
-    <ul>
-        <li>HTML 파일에 포함시키기</li>
-        <li>외부 JavaScript파일 사용하기</li>
-        <li>Web Browser에서 바로 입력하기</li>
-        <li>Web Browser로 실행하기</li>
-        <ol>
-            <li>HTML파일에 직접 JavaScript 코드를 작성 후 웹 브라우저로 파일 열기</li>
-            <img src="https://user-images.githubusercontent.com/110621233/232657091-38489da5-a62d-465f-86db-aea742744fdb.png" alt="HTML파일에 직접 작성">
-            <li>Chrome의 개발자 도구 - Console 탭에서 결과 확인 가능</li>
-            <img src="https://user-images.githubusercontent.com/110621233/232657088-45a1b8e2-f0c2-480f-bc70-1233cfe818db.png" alt="HTML파일에 직접 작성 결과">
-            <li>.js 확장자를 가진 파일에 JavaScript를 작성하고, 해당 파일을 HTML에 포함 가능</li>
-            <img src="https://user-images.githubusercontent.com/110621233/232657096-02400f94-cf63-4c9b-821d-7caacff4b296.png" alt="JavaScript파일작성">
-            <li>결과 확인</li>
-            <img src="https://user-images.githubusercontent.com/110621233/232657094-422cf68c-ad6d-4fc8-8229-ca06439412d1.png" alt="javascript결과확인">
-        </ol>
-        <li>특별하게 웹 브라우저에서 바로 실행할 수 있는 JavaScript문법들을 Vanilla JavaScript라고 부른다.</li>
-    </ul>
+<!-- @format -->
 
->    <h2>기초문법</h2>
+<img src="https://user-images.githubusercontent.com/110621233/231062359-1b7d42fd-45a2-4605-8034-c342d05d5a9d.png"></img>
+
+# JavaScript
+
+## 정의
+
+- 웹 페이지에 이벤트 발생 시 어떻게 작동하는지 디자인/프로그래밍 등 웹 페이지 동작을 제어.
+- 클라이언트 측 웹(브라우저)에서 실행되며, 웹의 동작을 구현하는 객체(object)기반의 스크립트 언어이다.
+- 쉽게 말해, HTML은 자동차의 뼈대, CSS는 외관, JavaScript는 자동차의 동력원인 엔진이라고 할 수 있다.
+
+## 특징
+
+- 객체 기반의 스크립트 언어이다.
+- 동적이며, 타입을 명시할 필요가 없는 인터프리터 언어이다.
+- 객체 지향형 프로그래밍과 함수형 프로그래밍을 모두 표현할 수 있다.
+
+## 실행 환경 구성
+
+- HTML 파일에 포함시키기
+- 외부 JavaScript 파일 사용하기
+- Web Browser에서 바로 입력하기
+- Web Browser로 실행하기
+  1. HTML 파일에 직접 JavaScript 코드를 작성 후 웹 브라우저로 파일 열기
+     ![HTML파일에 직접 작성](https://user-images.githubusercontent.com/110621233/232657091-38489da5-a62d-465f-86db-aea742744fdb.png)
+  2. Chrome의 개발자 도구 - Console 탭에서 결과 확인 가능
+     ![HTML파일에 직접 작성 결과](https://user-images.githubusercontent.com/110621233/232657088-45a1b8e2-f0c2-480f-bc70-1233cfe818db.png)
+  3. .js 확장자를 가진 파일에 JavaScript를 작성하고, 해당 파일을 HTML에 포함 가능
+     ![JavaScript파일작성](https://user-images.githubusercontent.com/110621233/232657096-02400f94-cf63-4c9b-821d-7caacff4b296.png)
+  4. 결과 확인
+     ![javascript결과확인](https://user-images.githubusercontent.com/110621233/232657094-422cf68c-ad6d-4fc8-8229-ca06439412d1.png)
+- 특별하게 웹 브라우저에서 바로 실행할 수 있는 JavaScript문법들을 Vanilla JavaScript라고 부른다.
+
+   <h2>기초문법</h2>
     <ul>
         <h3><li>식별자</li></h3>
         <ul>
@@ -235,12 +229,12 @@
   </p>
 
   > <h3>참고</h3>
-  JavaScript <a href="http://www.tcpschool.com/javascript/intro">TCPschool</a> <br>
-  호이스팅이란? <a href="https://hanamon.kr/javascript-%ED%98%B8%EC%9D%B4%EC%8A%A4%ED%8C%85%EC%9D%B4%EB%9E%80-hoisting/">HANAMON</a>
-  <br>
-  Javascript문법연습 <a href="https://www.w3schools.com/js/exercise_js.asp?filename=exercise_js_variables1">w3schools</a>
-  <br>
-  JavaScript알고리즘연습<a href="https://paullab.co.kr/codefestival.html">paullab</a>
+  > JavaScript <a href="http://www.tcpschool.com/javascript/intro">TCPschool</a> <br>
+  > 호이스팅이란? <a href="https://hanamon.kr/javascript-%ED%98%B8%EC%9D%B4%EC%8A%A4%ED%8C%85%EC%9D%B4%EB%9E%80-hoisting/">HANAMON</a>
+  > <br>
+  > Javascript문법연습 <a href="https://www.w3schools.com/js/exercise_js.asp?filename=exercise_js_variables1">w3schools</a>
+  > <br>
+  > JavaScript알고리즘연습<a href="https://paullab.co.kr/codefestival.html">paullab</a>
 
   <img src="https://user-images.githubusercontent.com/110621233/231062359-1b7d42fd-45a2-4605-8034-c342d05d5a9d.png"></img>
 
